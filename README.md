@@ -9,8 +9,13 @@ Net include lot of real old Bourne shell stuff even ksh, bash, ... (posix shells
 of built in properties. ex, calculations without expr, parsing without awk/sed/cut, ...
 
 Why I like it ? Only some commands but enough. No libraries or plugins. Static bin include everything.
-Nice HERE template. Very simple and nice socket support. Also event based scripting is possible using **trap**.
-For object persons compount item is supported, own methods, lowlevel cgi support, ... regexp ...
+  * Nice HERE template 
+  * Very simple and nice socket support 
+  * event based scripting is possible using **trap**
+  * For object persons compount item is supported, own methods,  [fpmurphy] (http://blog.fpmurphy.com/2010/05/ksh93-using-types-to-create-object-orientated-scripts.html)
+  * lowlevel cgi support 
+  * regexp 
+  * [DEBUG Trap] (http://blog.fpmurphy.com/2014/07/korn-shell-debug-trap.html)
 
 Thanks for Bourne Shell and Korn Shell. All posix-sh are nice (ksh, bash, dash, ...), but for
 scripting I have used ksh93.
@@ -29,6 +34,7 @@ Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
 
    * [Install Linux Subsystem for Windows 10] (https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
    * [Install Linux Subsystem and Xming] (http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
+   * [Change bash to ksh default shell] (http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
 
 Windows 10 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
 Mostly Windows is only desktop/window manager/gui for me. **Ssh** and **vi** is my main tools.
@@ -69,6 +75,9 @@ Change my "awsh" to your ksh path as you need it.
    * [Bash Reference manual] (https://www.gnu.org/software/bash/manual/bashref.html)
    * [Learning The Korn Shell] (http://docstore.mik.ua/orelly/unix3/korn/index.htm)
    * [IBM KornShell] (http://www.ibm.com/support/knowledgecenter/ssw_aix_72/com.ibm.aix.osdevice/korn_shell.htm)
+   * [SHELLdorado] (http://www.shelldorado.com/)
+   * [fpmurphy] (http://blog.fpmurphy.com/2009/01/ksh93-regular-expressions.html) Super RegExp examles
+	* 
 
 ## What I have for you ##
 
