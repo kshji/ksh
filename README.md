@@ -5,9 +5,12 @@ Sh/Ksh/... user since 1984.
 I have done lot of stuff using ksh/awk/sed ... today it's more hoppy.
 
 I try to tell for less ksh used persons how powerfull scripting language it's.
+Net include lot of real old Bourne shell stuff even ksh, bash, ... (posix shells) include lot
+of built in properties. ex, calculations without expr, parsing without awk/sed/cut, ...
 
-Why I like it ? Only some commands but enough. No librarys or plugins. Static bin include everything.
-Nice HERE template.
+Why I like it ? Only some commands but enough. No libraries or plugins. Static bin include everything.
+Nice HERE template. Very simple and nice socket support. Also event based scripting is possible using **trap**.
+For object persons compount item is supported, own methods, lowlevel cgi support, ...
 
 Thanks for Bourne Shell and Korn Shell. All posix-sh are nice (ksh, bash, dash, ...), but for
 scripting I have used ksh93.
@@ -57,7 +60,9 @@ Read previous section.
 Change my "awsh" to your ksh path as you need it.
 
 ## More info ##
-   * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell)
+   * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell) finnish
+   * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell/quickref) My english - sorry ...
+   
    * [Unix&Linux Forums] (http://www.unix.com/shell-programming-and-scripting/) 
    * [Posix-sh] (http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html)
      * [Posix Shell Commands] (http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html)
