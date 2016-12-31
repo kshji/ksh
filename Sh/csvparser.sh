@@ -174,7 +174,8 @@ done
 
 
 # 1st line include colnames
-while read line
+# remove CR chars from dos-files
+cat "$inf" | tr -d "\015" | while read line
 do
     ((lineno+=1))
     (( lineno == 1 )) && colnames -d "$deli" "$line" && continue  # headerline = variable names
@@ -188,5 +189,5 @@ do
     [ "$name" = "cc" ] && echo "Found: $name, age:$age"
 	
 
-done < "$inf"
+done 
 
