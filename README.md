@@ -68,6 +68,6 @@ Change my "awsh" to your ksh path as you need it.
 
    * CSV parser - dynamically parse csv and use set variables same name as columns name
    * date calculation - it's easy:w
-   * lib.sh include some function, libusage.sh is example to use itusage is example to use 
+   * lib.sh include some function, libusage.sh is example to use it
    * ...
 
