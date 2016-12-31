@@ -31,6 +31,10 @@ Mostly Windows is only desktop/window manager/gui for me. **Ssh** and **vi** is 
 Cygwin and Virtual Machines are history for me.
 Windows 7 laptop includes all those ...
 
+Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
+  * build att ksh93 from source, standalone version.
+  * copy ksh93 to the Win10 bash and run it
+
 ## Install ksh ##
    * Ubuntu, Debian, Windows Linux Subsystem (bash), ...
        ``` apt-get install ksh ```
