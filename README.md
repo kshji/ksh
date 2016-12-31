@@ -1,5 +1,7 @@
 # Ksh/bash scripts for using #
 
+Sh/Ksh/... user since 1984.
+
 I have done lot of stuff using ksh/awk/sed ... today it's more hoppy.
 
 I try to tell for less ksh used persons how powerfull scripting language it's.
@@ -14,6 +16,20 @@ scripting I have used ksh93.
    * [Awk] (https://github.com/kshji/awk)
    * [Ksh] (https://github.com/kshji/ksh)
    * Postgresql is coming
+
+## My env ##
+I use Windows 10 laptop with Linux Subsystem (bash) for development. 
+It's full Ubuntu. Ubuntu 14.04.5 LTS is current version.
+I use also many Debian x64 servers.
+
+   * [Install Linux Subsystem for Windows 10] (https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
+   * [Install Linux Subsystem and Xming] (http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
+
+Windows 10 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
+Mostly Windows is only desktop/window manager/gui for me. **Ssh** and **vi** is my main tools.
+
+Cygwin and Virtual Machines are history for me.
+Windows 7 laptop includes all those ...
 
 ## Install ksh ##
    * Ubuntu, Debian, Windows Linux Subsystem (bash), ...
