@@ -20,7 +20,9 @@ scripting I have used ksh93.
 ## My env ##
 I use Windows 10 laptop with Linux Subsystem (bash) for development. 
 It's full Ubuntu. Ubuntu 14.04.5 LTS is current version.
-I use also many Debian x64 servers.
+I use also many Debian x64 servers. My history include many *nix: Ultrix, SCO Open Server, 
+MS Xenix, SCO Xenix,  SCO UNixware, HP/UX, SunOS, Solaris, ICL6000, AIX, SNIRM, SNITG, ... ,
+Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
 
    * [Install Linux Subsystem for Windows 10] (https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
    * [Install Linux Subsystem and Xming] (http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
