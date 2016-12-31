@@ -29,7 +29,10 @@ I copied it to /bin/sh. Result wasn't so nice: Next boot, no boot ...
 After that I have copied correct ksh93 version to the /usr/local/bin/awsh in every host and use it in my script.
 => I know exactly which version I have used in my scripts and system upgrade not update it automatically.
 
-So: change my "awsh" to your ksh path as you need it.
+## /usr/local/bin/awsh ##
+Read previous section.
+
+Change my "awsh" to your ksh path as you need it.
 
 ## More info ##
    * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell)
@@ -45,4 +48,3 @@ So: change my "awsh" to your ksh path as you need it.
    * date calculation - it's easy
    * ...
 
-## /usr/local/bin/awsh ##
