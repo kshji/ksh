@@ -10,6 +10,10 @@ Nice HERE template.
 Thanks for Bourne Shell and Korn Shell. All posix-sh are nice (ksh, bash, dash, ...), but for
 scripting I have used ksh93.
 
+## My Repo ##
+   * [Awk] (https://github.com/kshji/awk)
+   * [Ksh] (https://github.com/kshji/ksh)
+   * Postgresql is coming
 
 ## More info ##
    * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell)
