@@ -15,6 +15,11 @@ scripting I have used ksh93.
    * [Ksh] (https://github.com/kshji/ksh)
    * Postgresql is coming
 
+## Install ksh ##
+   * Ubuntu, Debian, Windows Linux Subsystem (bash), ...
+       ``` apt-get install ksh ```
+   * [build from source] (https://github.com/att/ast)
+
 ## More info ##
    * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell)
    * [Unix&Linux Forums] (http://www.unix.com/shell-programming-and-scripting/) 
@@ -29,4 +34,4 @@ scripting I have used ksh93.
    * date calculation - it's easy
    * ...
 
-
+## /usr/local/bin/awsh ##
