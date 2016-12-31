@@ -19,11 +19,11 @@ scripting I have used ksh93.
    * Ubuntu, Debian, Windows Linux Subsystem (bash), ...
        ``` apt-get install ksh ```
    * many *nix system include ksh88 and also ksh93
-       * maybe ksh93 is in some special directory ex. /usr/xpg4/bin/sh
+       * maybe ksh93/posix-sh is in some special directory ex. /usr/xpg4/bin/sh
    * [build from source] (https://github.com/att/ast)
 
 Why my script using **/usr/local/bin/awsh** , not /bin/sh or /bin/ksh ?
-I have make a big mistake in my history: n a *nix /bin/sh was some special sh, but system include also file ksh93, 
+I have made a big mistake in my history: a *nix /bin/sh was some special sh, but system include also file ksh93, 
 I copied it to /bin/sh. Result wasn't so nice: Next boot, no boot ...
 
 After that I have copied correct ksh93 version to the /usr/local/bin/awsh in every host and use it in my script.
