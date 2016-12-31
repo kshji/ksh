@@ -10,7 +10,7 @@ of built in properties. ex, calculations without expr, parsing without awk/sed/c
 
 Why I like it ? Only some commands but enough. No libraries or plugins. Static bin include everything.
 Nice HERE template. Very simple and nice socket support. Also event based scripting is possible using **trap**.
-For object persons compount item is supported, own methods, lowlevel cgi support, ...
+For object persons compount item is supported, own methods, lowlevel cgi support, ... regexp ...
 
 Thanks for Bourne Shell and Korn Shell. All posix-sh are nice (ksh, bash, dash, ...), but for
 scripting I have used ksh93.
@@ -68,6 +68,7 @@ Change my "awsh" to your ksh path as you need it.
      * [Posix Shell Commands] (http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html)
    * [Bash Reference manual] (https://www.gnu.org/software/bash/manual/bashref.html)
    * [Learning The Korn Shell] (http://docstore.mik.ua/orelly/unix3/korn/index.htm)
+   * [IBM KornShell] (http://www.ibm.com/support/knowledgecenter/ssw_aix_72/com.ibm.aix.osdevice/korn_shell.htm)
 
 ## What I have for you ##
 
