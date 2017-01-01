@@ -3,6 +3,11 @@
 Sh/Ksh/... user since 1984.
 
 I have done lot of stuff using ksh/awk/sed ... today it's more hoppy.
+  * website with templates (HEREdoc), (cgi)
+  * textfile database: object format was shellscript = easy to parse :) 
+  * tcp/ip servers, ...
+  * named pipes with Postgresql
+  * ...
 
 I try to tell for less ksh used persons how powerfull scripting language it's.
 Net include lot of real old Bourne shell stuff even ksh, bash, ... (posix shells) include lot
@@ -17,8 +22,10 @@ Why I like it ? Only some commands but enough. No libraries or plugins. Static b
   * regexp 
   * [DEBUG Trap] (http://blog.fpmurphy.com/2014/07/korn-shell-debug-trap.html)
 
-Thanks for Bourne Shell and Korn Shell. All posix-sh are nice (ksh, bash, dash, ...), but for
-scripting I have used ksh93.
+Thanks for Bourne Shell and 
+[Korn Shell] (https://www.usenix.org/legacy/publications/library/proceedings/vhll/full_papers/korn.ksh.a). 
+All posix-sh are nice (ksh, bash, dash, ...), but for scripting I have used ksh93. Dash is full Posix-sh compatible,
+ksh93, bash, ... includes some extensions. Steve Bourne and David Korn are the main persons behind this shells.
 
 ## My Repo ##
    * [Awk] (https://github.com/kshji/awk)
@@ -52,6 +59,20 @@ Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
    * many *nix system include ksh88 and also ksh93
        * maybe ksh93/posix-sh is in some special directory ex. /usr/xpg4/bin/sh
    * [build from source] (https://github.com/att/ast)
+
+```sh
+# build ksh from and all other ast stuff
+# Tested Debian, Windows Linux Subsystem 
+git clone --branch beta https://github.com/att/ast.git
+cd ast
+./bin/package make
+# example I have linux.i386-64, install as root:
+install -v -m755 arch/linux.i386-64/bin/ksh /usr/local/bin 
+install -v -m644 arch/linux.i386-64/man/man1/sh.1 /usr/local/share/man/man1/ksh.1 
+install -v -m755 -d /usr/local/share/doc/ksh-2014-12-24 
+install -v -m644 lib/package/{ast-ksh,INIT}.html /usr/local/share/doc/ksh-2014-12-24
+```
+
 
 Why my script using **/usr/local/bin/awsh** , not /bin/sh or /bin/ksh ?
 I have made a big mistake in my history: a *nix /bin/sh was some special sh, but system include also file ksh93, 
