@@ -69,11 +69,10 @@ cd ast
 ./bin/package make
 # example I have linux.i386-64, install as root:
 install -v -m755 arch/linux.i386-64/bin/ksh /usr/local/bin 
-
-# echo "#!/usr/local/bin/ksh" > /usr/local/bin/mm2html
-# cat arch/linux.i386-64/bin/mm2html >> /usr/local/bin
-# chmod 755 /usr/local/bin/mm2html
-# install -v -m755 arch/linux.i386-64/bin/mm2html /usr/local/bin 
+echo "#!/usr/local/bin/ksh" > /usr/local/bin/mm2html
+cat arch/linux.i386-64/bin/mm2html >> /usr/local/bin
+chmod 755 /usr/local/bin/mm2html
+#install -v -m755 arch/linux.i386-64/bin/mm2html /usr/local/bin 
 install -v -m644 arch/linux.i386-64/man/man1/sh.1 /usr/local/share/man/man1/ksh.1 
 /usr/local/bin/mm2html /usr/local/share/man/man1/ksh.1 > /usr/local/share/doc/ksh-2014-12-24/ksh.html
 install -v -m755 -d /usr/local/share/doc/ksh-2014-12-24 
