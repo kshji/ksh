@@ -15,7 +15,7 @@ print "-------------------------------"
 echo 'print "$person"'
 print "$person"
 print "-------------------------------"
-echo ' -r "$person"'
+echo 'print -r "$person"'
 print -r "$person"
 print "-------------------------------"
 echo 'print ${person.email}'

@@ -51,7 +51,7 @@ print "$person"
 	typeset -l -E quarter=0.25
 )
 -------------------------------
- -r "$person"
+print -r "$person"
 (
 	typeset -a children=(
 		boy
