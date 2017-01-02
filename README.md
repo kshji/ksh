@@ -61,9 +61,10 @@ Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
    * [build from source] (https://github.com/att/ast/tree/beta)
 	* [Old AST Beta] (http://gsf.cococlyde.org/download) Has saved by GSF
 
+### Dynamic library ksh93###
 ```sh
 # build ksh from and all other ast stuff
-# Tested Debian, Windows Linux Subsystem 
+# Tested Debian + Windows Linux Subsystem (Ubuntu)
 git clone --branch beta https://github.com/att/ast.git
 cd ast
 ./bin/package make
@@ -78,8 +79,27 @@ install -v -m644 arch/linux.i386-64/man/man1/sh.1 /usr/local/share/man/man1/ksh.
 install -v -m755 -d /usr/local/share/doc/ksh-2014-12-24 
 install -v -m644 lib/package/{ast-open,INIT}.html /usr/local/share/doc/ksh-2014-12-24
 ```
+### Static ksh93 ###
+```sh
+# build ksh from and all other ast stuff
+# Tested Debian + Windows Linux Subsystem (Ubuntu)
+git clone --branch beta https://github.com/att/ast.git
+cd ast
+$HOSTTYPE=$(./bin/package)
+./bin/package make "$HOSTTYPE-static" LDFLAGS=-static
+# example I have linux.i386-64, install as root:
+install -v -m755 arch/"$HOSTTYPE-static"/bin/ksh /usr/local/bin 
+echo "#!/usr/local/bin/ksh" > /usr/local/bin/mm2html
+cat arch/"$HOSTTYPE-static"/bin/mm2html >> /usr/local/bin
+chmod 755 /usr/local/bin/mm2html
+install -v -m644 arch/"$HOSTTYPE-static"/man/man1/sh.1 /usr/local/share/man/man1/ksh.1 
+/usr/local/bin/mm2html /usr/local/share/man/man1/ksh.1 > /usr/local/share/doc/ksh-2014-12-24/ksh.html
+install -v -m755 -d /usr/local/share/doc/ksh-2014-12-24 
+install -v -m644 lib/package/{ast-open,INIT}.html /usr/local/share/doc/ksh-2014-12-24
+```
 
 
+## /usr/local/bin/awsh ##
 Why my script using **/usr/local/bin/awsh** , not /bin/sh or /bin/ksh ?
 I have made a big mistake in my history: a *nix /bin/sh was some special sh, but system include also file ksh93, 
 I copied it to /bin/sh. Result wasn't so nice: Next boot, no boot ...
@@ -87,8 +107,6 @@ I copied it to /bin/sh. Result wasn't so nice: Next boot, no boot ...
 After that I have copied correct ksh93 version to the /usr/local/bin/awsh in every host and use it in my script.
 => I know exactly which version I have used in my scripts and system upgrade not update it automatically.
 
-## /usr/local/bin/awsh ##
-Read previous section.
 
 Change my "awsh" to your ksh path as you need it.
 
