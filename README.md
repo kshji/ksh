@@ -131,5 +131,6 @@ Change my "awsh" to your ksh path as you need it.
    * ...
 
 ## Guru scripts ##
-    * [David Korn test patterns ] (https://github.com/att/ast/tree/master/src/cmd/ksh93/tests) - startpoint
+   * [David Korn test patterns ] (https://github.com/att/ast/tree/master/src/cmd/ksh93/tests) 
+
 
