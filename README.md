@@ -121,8 +121,7 @@ Change my "awsh" to your ksh path as you need it.
    * [Learning The Korn Shell] (http://docstore.mik.ua/orelly/unix3/korn/index.htm)
    * [IBM KornShell] (http://www.ibm.com/support/knowledgecenter/ssw_aix_72/com.ibm.aix.osdevice/korn_shell.htm)
    * [SHELLdorado] (http://www.shelldorado.com/)
-   * [fpmurphy] (http://blog.fpmurphy.com/2009/01/ksh93-regular-expressions.html) Super RegExp examles
-	* 
+   * [fpmurphy] (http://blog.fpmurphy.com/2009/01/ksh93-regular-expressions.html) Super RegExp examples
 
 ## What I have for you ##
 
