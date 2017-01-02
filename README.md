@@ -61,7 +61,7 @@ Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
    * [build from source] (https://github.com/att/ast/tree/beta)
 	* [Old AST Beta] (http://gsf.cococlyde.org/download) Has saved by GSF
 
-### Dynamic library ksh93###
+### Build dynamic library ksh93###
 ```sh
 # build ksh from and all other ast stuff
 # Tested Debian + Windows Linux Subsystem (Ubuntu)
@@ -79,7 +79,7 @@ install -v -m644 arch/linux.i386-64/man/man1/sh.1 /usr/local/share/man/man1/ksh.
 install -v -m755 -d /usr/local/share/doc/ksh-2014-12-24 
 install -v -m644 lib/package/{ast-open,INIT}.html /usr/local/share/doc/ksh-2014-12-24
 ```
-### Static ksh93 ###
+### Build static ksh93 ###
 ```sh
 # build ksh from and all other ast stuff
 # Tested Debian + Windows Linux Subsystem (Ubuntu)
@@ -129,6 +129,7 @@ Change my "awsh" to your ksh path as you need it.
    * date calculation - it's easy
    * lib.sh include some function, libusage.sh is example to use it
    * ...
+   * json example, ksh manual include only **read -m json**, but also print and printf support **JSON**
 
 ## Guru scripts ##
    * [David Korn test patterns ] (https://github.com/att/ast/tree/master/src/cmd/ksh93/tests) 
