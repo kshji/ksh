@@ -41,7 +41,7 @@ Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
 
    * [Install Linux Subsystem for Windows 10] (https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
    * [Install Linux Subsystem and Xming] (http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
-   * [Change bash to ksh default shell] (http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
+   * [Change bash to ksh default shell (Win10 Linux Subsystem)] (http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
 
 Windows 10 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
 Mostly Windows is only desktop/window manager/gui for me. **Ssh** and **vi** is my main tools.
@@ -127,7 +127,7 @@ Change my "awsh" to your ksh path as you need it.
 ## What I have for you ##
 
    * CSV parser - dynamically parse csv and use set variables same name as columns name
-   * date calculation - it's easy:w
+   * date calculation - it's easy
    * lib.sh include some function, libusage.sh is example to use it
    * ...
 
