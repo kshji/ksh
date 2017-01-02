@@ -131,3 +131,6 @@ Change my "awsh" to your ksh path as you need it.
    * lib.sh include some function, libusage.sh is example to use it
    * ...
 
+## Guru scripts ##
+    * [David Korn test patterns ] (https://github.com/att/ast/tree/master/src/cmd/ksh93/tests) - startpoint
+
