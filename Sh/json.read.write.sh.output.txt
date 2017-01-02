@@ -1,0 +1,98 @@
+Version ABIJM 93v- 2014-12-24
+==================== compound item , print JSON ==============
+{
+	"age": "32",
+	"firstname": "John",
+	"lastname": "Some"
+}
+-------------------------------
+{
+	"age": "32",
+	"firstname": "John",
+	"lastname": "Some"
+}
+-------------------------------
+=============== JSON compound item ===========================
+print -j person:
+{
+	"email": "My.Name@gmail.com",
+	"first": "My"
+}
+
+print -r "person"
+(
+	email=My.Name@gmail.com
+	first=My
+)
+
+print ${person.email}
+My.Name@gmail.com
+=============== JSON compound item ===========================
+-------------------------------
+(
+	typeset -a children=(
+		boy
+		girl
+	)
+	email=My.Name@gmail.com
+	first=My
+	last=Name
+	typeset -a lotto=(
+		9
+		12
+		17
+		38
+		45
+		46
+	)
+	typeset -l -E lucky=13
+	_Bool nerd=true
+	typeset -l -E quarter=0.25
+)
+-------------------------------
+(
+	typeset -a children=(
+		boy
+		girl
+	)
+	email=My.Name@gmail.com
+	first=My
+	last=Name
+	typeset -a lotto=(
+		9
+		12
+		17
+		38
+		45
+		46
+	)
+	typeset -l -E lucky=13
+	_Bool nerd=true
+	typeset -l -E quarter=0.25
+)
+-------------------------------
+My.Name@gmail.com
+-------------------------------
+9 12 17 38 45 46
+-------------------------------
+{
+	"children": [
+		"boy",
+		"girl"
+	],
+	"email": "My.Name@gmail.com",
+	"first": "My",
+	"last": "Name",
+	"lotto": [
+		"9",
+		"12",
+		"17",
+		"38",
+		"45",
+		"46"
+	],
+	"lucky": 13,
+	"nerd": true,
+	"quarter": 0.25
+}
+-------------------------------

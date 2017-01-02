@@ -58,7 +58,6 @@ echo "=============== JSON compound item ==========================="
 compound person
 
 # read JSON person object and parse it. Use compound variable
-# json2.sh[11]: read: syntax error at line 38: `end of file' unexpected
 read -m json person <<EOF
 {
     "first" : "My",
