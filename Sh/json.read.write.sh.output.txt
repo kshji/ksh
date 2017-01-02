@@ -29,6 +29,7 @@ print ${person.email}
 My.Name@gmail.com
 =============== JSON compound item ===========================
 -------------------------------
+print "$person"
 (
 	typeset -a children=(
 		boy
@@ -50,6 +51,7 @@ My.Name@gmail.com
 	typeset -l -E quarter=0.25
 )
 -------------------------------
+ -r "$person"
 (
 	typeset -a children=(
 		boy
@@ -71,10 +73,13 @@ My.Name@gmail.com
 	typeset -l -E quarter=0.25
 )
 -------------------------------
+print ${person.email}
 My.Name@gmail.com
 -------------------------------
+print ${person.lotto[*]}
 9 12 17 38 45 46
 -------------------------------
+print -j person
 {
 	"children": [
 		"boy",

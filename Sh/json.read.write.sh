@@ -12,14 +12,19 @@ echo ${.sh.version}
 tstout()
 {
 print "-------------------------------"
+echo 'print "$person"'
 print "$person"
 print "-------------------------------"
+echo ' -r "$person"'
 print -r "$person"
 print "-------------------------------"
+echo 'print ${person.email}'
 print ${person.email}
 print "-------------------------------"
+echo 'print ${person.lotto[*]}'
 print ${person.lotto[*]}
 print "-------------------------------"
+echo 'print -j person'
 print -j person
 print "-------------------------------"
 
