@@ -19,7 +19,7 @@ chmod 1777 tmp 2>/dev/null
 #################################################################
 usage()
 {
-        echo "usage:$PRG -s sqlfile [ -e csv_erotinmerkki ] [ -c configfile ] " >&2
+        echo "usage:$PRG -s sqlfile [ -e csv_delimiterchar ] [ -c configfile ] " >&2
 }
 
 #################################################################
