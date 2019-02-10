@@ -2,6 +2,7 @@
 
 Here is some my scripts for you.
 
+I use ksh /usr/local/bin/awsh in my scripts. Copy working ksh to the /usr/local/bin/awsh or change it to the your ksh path ex. /usr/bin/ksh
 
 ## ip2dec2ip ##
 
