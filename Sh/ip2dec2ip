@@ -1,0 +1,102 @@
+#!/usr/local/bin/awsh
+# ip2dec2ip
+#
+# Jukka Inkeri 2019-02-10
+#
+# ipaddress conversion to decimal
+# decimal conversion to ipaddress
+# usage:
+#  ip2dec2ip --dec 192.130.252.44 
+#  ip2dec2ip --ip 3229809708
+#  ip2dec2ip --dec 192.130.252.44 --ip 3229809708
+# 
+
+PRG="$0"
+PRG="${PRG##*/}" # remove PATH
+
+#######################################################
+usage()
+{
+  echo "usage:$PRG --dec ipaddress  | --ip decimal 
+        ip2dec2ip --dec 192.130.252.44
+        ip2dec2ip --ip 3229809708
+        ">&2
+}
+
+#######################################################
+ip2dec()
+{
+	Xip="$1"
+	[ "$Xip" = "" ] && usage && exit 3
+	typeset -ui Xdec  # unsigned int 32 bit
+	typeset -i2 ipbin1 ipbin2 ipbin3 ipbin4 ipbin # binary format
+
+	OrgIfs="$IFS"
+	IFS="."
+	# parse input to array using delimiter $IFS
+	IP=($Xip)
+	IFS=$OrgIfs
+	# binaryformat
+	ipbin1=${IP[0]}
+	ipbin2=${IP[1]}
+	ipbin3=${IP[2]}
+	ipbin4=${IP[3]}
+	ipbin=$(( (ipbin1 << 24) | (ipbin2 << 16) | (ipbin3 << 8) | ipbin4 ))
+	Xdec=$ipbin # convert to decimal
+	echo "$Xdec ${ipbin:2} $Xip ${ipbin1:2}.${ipbin2:2}.${ipbin3:2}.${ipbin4:2} $((ipbin1)).$((ipbin2)).$((ipbin3)).$(($ipbin4))"
+
+	#convert using awk
+	#convert using awkecho "$Xip"|awk -F '.' '{printf "%d\n", ($1 * 2^24) + ($2 * 2^16) + ($3 * 2^8) + $4}'
+}
+
+#######################################################
+dec2ip()
+{
+	typeset -ui ipaddrdec  # unsigned int 32 bit
+	ipaddrdec="$1"
+	[ "$ipaddrdec" = "" ] && usage && exit 4
+
+	typeset -ui10 part Ip1 Ip2 Ip3 Ip4  endpart
+	((part=ipaddrdec / 256))
+	((Ip4=ipaddrdec-part*256))
+	endpart=part
+	((part=endpart / 256))
+	((Ip3=endpart-part*256))
+	endpart=part
+	((part=endpart / 256))
+	((Ip2=endpart-part*256))
+	Ip1=part
+	#$ipaddrdec back to IP address:
+	echo "$Ip1.$Ip2.$Ip3.$Ip4"
+}
+
+#######################################################
+# MAIN
+#######################################################
+
+typeset -ui decip # unsigned int 32 bit
+
+ip=""
+decip=""
+doneit=0
+while (( $# > 0 ))
+do
+	arg="$1"
+	case "$arg" in
+		--dec) 	shift
+			ip2dec "$1"
+			doneit=1
+			;;
+		--ip)  	shift
+			dec2ip "$1"
+			doneit=1
+			;;
+		--) shift ;;
+		-*) usage ; exit 1 ;;
+		*) break ;;
+	esac
+	shift
+done
+(( $# > 0 )) && usage && exit 5
+(( doneit<1 )) && usage && exit 6
+

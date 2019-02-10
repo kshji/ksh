@@ -1,7 +1,7 @@
 #!/usr/local/bin/awsh
 # csvparser.sh
 # Jukka Inkeri 10.11.2007
-#
+# old version, look parsecsv.sh and parsecsv2.sh
 
 # 
 # generate some sample.csv to test
