@@ -31,10 +31,6 @@ usagesql()
 		
 }
 
-# COPY kaytetaan ohessa tuottamaan CSV output
-#COPY (
-# SELECT * FROM taulu
-#) TO STDOUT DELIMITER ";" CSV HEADER
 
 #################################################################
 parse_file()
@@ -47,15 +43,15 @@ parse_file()
 #################################################################
 pgsql()
 {
-	# voi olla parametrina tiedosto tai pipe:ssa data jolloin parametri on -
-	# -t optiolla kerrotaan trailer/header paalle/pois
+	# param is file or using stdin = file -
+	# -t tell for pgsql trailer on/off
 	# pgsql -t input.sql
 	# echo "..." | pgsql -t -
  
 	inf=tmp/$$.sql
 
 	lippu=""
-        [ "$1" = "-t" ] && lippu=" -t " && shift
+        [ "$1" = "-t" ] && flag=" -t " && shift
         sfile="$1"
 	[ "$sfile" = "" ] && usagesql && exit 10
 	[ "$sfile" != "-" ] && cat "$sfile" > $inf
@@ -67,14 +63,14 @@ pgsql()
 
 	echo "
 \a
-\\f '$erotin'
+\\f '$deli'
 \pset footer off
 
 	COPY (
         	$(parse_file $inf)
-	) TO STDOUT WITH CSV HEADER DELIMITER '$erotin' 
+	) TO STDOUT WITH CSV HEADER DELIMITER '$deli' 
 ;
-" | psql -h "$PGHOST" -p "$PGPORT" -U "$PGUSER"  -q $lippu "$PGDATABASE"
+" | psql -h "$PGHOST" -p "$PGPORT" -U "$PGUSER"  -q $flag "$PGDATABASE"
         status=$?
 	rm -f tmp/$inf 2>/dev/null
         return $status
@@ -86,7 +82,7 @@ pgsql()
 ####################################################
 
 sqlfile=""
-erotin=";"
+deli=";"
 header=""
 batchfile="./batch.cfg"
 
@@ -96,7 +92,7 @@ do
         case "$arg" in
                 -s) sqlfile="$2" ;;
                 -c) batchfile="$2" ;;
-                -e) erotin="$2" ;;
+                -e) deli="$2" ;;
                 -h0) header="-t" ;;
                 -t) header="-t" ;;
                 --) shift; break ;;
@@ -105,9 +101,9 @@ do
 done
 
 [ "$sqlfile" = "" ] && usage && exit 2
-[ ! -f "$sqlfile"  ] && echo "ei ole tiedostoa $sqlfile">&2   && exit 3
+[ ! -f "$sqlfile"  ] && echo "file not readable  $sqlfile">&2   && exit 3
 
-[ ! -f "$batchfile"  ] && echo "tarvitaan $batchfile" >&2 && exit 4
+[ ! -f "$batchfile"  ] && echo "need config $batchfile" >&2 && exit 4
 . "$batchfile"
 
 pgsql $header "$sqlfile"
