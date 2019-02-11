@@ -59,7 +59,10 @@ Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
    * many *nix system include ksh88 and also ksh93
        * maybe ksh93/posix-sh is in some special directory ex. /usr/xpg4/bin/sh
    * [build from source] (https://github.com/att/ast/tree/beta)
+   * [Latest binary] (https://build.opensuse.org/repositories/shells:ksh:new:latest) openSuse, Ubuntu (Ubuntu works fine also in Windows WSL and Debian)
+   * [All ksh download] (https://pkgs.org/download/ksh) for CentOS, Debian, Fedora, Mageia, OpenMandriva, openSUSE, PCLinuxOS, ROSA, Ubuntu.
 	* [Old AST Beta] (http://gsf.cococlyde.org/download) Has saved by GSF
+   
 
 ### Build dynamic library ksh93###
 ```sh
