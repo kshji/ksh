@@ -63,6 +63,11 @@ Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
    * [All ksh download] (https://pkgs.org/download/ksh) for CentOS, Debian, Fedora, Mageia, OpenMandriva, openSUSE, PCLinuxOS, ROSA, Ubuntu.
 	* [Old AST Beta] (http://gsf.cococlyde.org/download) Has saved by GSF
    
+If you download ex. ksh_amd64.deb, you can install it:
+```sh
+sudo dpkg -i  ksh_amd64.deb
+```
+
 
 ### Build dynamic library ksh93###
 ```sh
