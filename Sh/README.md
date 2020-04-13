@@ -39,3 +39,10 @@ Example how to RFC format csv files.
 
 Example how to convert Postgresql data to the csv. 
 
+## sms.sh ##
+
+Shell script to send sms messages using your Android Phone and https://www.pushbullet.com/ gateway.
+  * Basic lisence is free, limit 100 sms / month
+  * Pro lisense is unlimited, only some dollars / month
+
+
