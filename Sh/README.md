@@ -44,5 +44,6 @@ Example how to convert Postgresql data to the csv.
 Shell script to send sms messages using your Android Phone and https://www.pushbullet.com/ gateway.
   * Basic lisence is free, limit 100 sms / month
   * Pro lisense is unlimited, only some dollars / month
+  * Android Phone you need App Pushbullet and setup SMS gateway on
 
 
