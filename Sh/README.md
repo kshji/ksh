@@ -60,13 +60,13 @@ Use this also to convert Finnish Payment Refrence Number To the RF format.
 
 	# make RF from 2348236
 	RF.sh -m 2348236
-	RF852228
+	RF332348236
 ```
 
 
 Check RF is valid
 ```sh
-	RF.sh -c RF852228
+	RF.sh -c RF332348236   
 ```
 
 ### More documents, online testing ###
