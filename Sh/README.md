@@ -69,7 +69,7 @@ Check RF is valid
 	RF.sh -c RF332348236   
 ```
 
-### More documents, online testing ###
+### More RF documents, online testing ###
  * [Kansainvälinen RF viite] (https://www.finanssiala.fi/maksujenvalitys/dokumentit/kansainvalisen_viitteen_rakenneohje.pdf)
  * [Javascript] (https://github.com/EDumdum/iso-11649-js)
  * [Php] ( https://github.com/kmukku/php-iso11649/blob/master/src/phpIso11649.php)
