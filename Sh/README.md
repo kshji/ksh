@@ -4,6 +4,8 @@ Here is some my scripts for you.
 
 I use ksh /usr/local/bin/awsh in my scripts. Copy working ksh to the /usr/local/bin/awsh or change it to the your ksh path ex. /usr/bin/ksh
 
+Most of my scripts works also using some other "about" posix shells: bash, zsh and dash. Dash is 100% Posix.
+
 ## 731.sh ##
 Finnish Payment Reference Number Calculation.
  * [Payment Reference] (https://www.finanssiala.fi/maksujenvalitys/dokumentit/Forming_a_Finnish_reference_number.pdf)
