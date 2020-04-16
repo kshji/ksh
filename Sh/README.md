@@ -4,6 +4,21 @@ Here is some my scripts for you.
 
 I use ksh /usr/local/bin/awsh in my scripts. Copy working ksh to the /usr/local/bin/awsh or change it to the your ksh path ex. /usr/bin/ksh
 
+## 731.sh ##
+Finnish Payment Reference Number Calculation.
+ * [Payment Reference] (https://www.finanssiala.fi/maksujenvalitys/dokumentit/Forming_a_Finnish_reference_number.pdf)
+
+Example: 
+ * reference Number 7 => Payment Ref 71
+ * reference Number 333 => Payment Ref 3337
+
+Look RF.sh. Solution convert Finnish Payment Reference to the International RF-format.
+
+```sh
+	731.sh 333
+        3337
+```
+
 ## ip2dec2ip ##
 
 Convert ip address to the decimal format and reverse
@@ -33,6 +48,34 @@ Example to parser csv, using 1st line to get variable names.
 Example how to RFC format csv files. 
  * handle correctly multiline values
  * handle correctly values which include quotation mark
+
+## RF.sh ##
+International Payment Reference Number Calculation. 
+Use this also to convert Finnish Payment Refrence Number To the RF format.
+
+```sh
+	# make Finnish Payment Ref from value 234823
+	731.sh 234823
+	2348236
+
+	# make RF from 2348236
+	RF.sh -m 2348236
+	RF852228
+```
+
+
+Check RF is valid
+```sh
+	RF.sh -c RF852228
+```
+
+### More documents, online testing ###
+ * [Kansainvälinen RF viite] (https://www.finanssiala.fi/maksujenvalitys/dokumentit/kansainvalisen_viitteen_rakenneohje.pdf)
+ * [Javascript] (https://github.com/EDumdum/iso-11649-js)
+ * [Php] ( https://github.com/kmukku/php-iso11649/blob/master/src/phpIso11649.php)
+ * [Java] (https://github.com/terokallio/reference-numbers/blob/master/src/main/java/com/terokallio/referencenumbers/RFCreditorReference.java)
+ * Ksh and bash  my *731.sh* and *RF.sh*
+ * [Nordea online generator both format] (https://pankki.nordea.fi/en/corporate-customers/payments/invoicing-and-payments/reference-number-calculator.flex)
 
 
 ## sql2csv.sh ##
