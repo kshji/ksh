@@ -51,6 +51,16 @@ Example how to RFC format csv files.
  * handle correctly multiline values
  * handle correctly values which include quotation mark
 
+## allowdynamic.sh ##
+Tools for those who need update firewall (iptable, UFW, ...) to change dynamic ip rules.
+  * look example rules in example dir
+
+```sh
+	# example I have DynDNS using duckdns and my domain/host has named mydyn
+	allowdynamic.sh --hostname mydyn.duckdns.org
+```
+  * add execute to cron , ex. 10 06 * * * /some/path/allowdynamic.sh --hostname mydyn.duckdns.org 
+
 ## RF.sh ##
 International Payment Reference Number Calculation. 
 Use this also to convert Finnish Payment Refrence Number To the RF format.
