@@ -1,0 +1,3 @@
+iptables -D INPUT -i eth0 -s $ip_prev -j ACCEPT
+iptables -I INPUT -i eth0 -s $ip_new -j ACCEPT
+/etc/init.d/iptables save

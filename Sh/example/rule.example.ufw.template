@@ -1,0 +1,11 @@
+# UFW rule, DENY ALL have to be after ssh rules
+# remove 1st ssh generic deny
+ufw delete deny ssh
+# remove my old rule
+ufw delete allow proto tcp from $ip_prev to $ip_thishost port 22 comment 'my comment'
+# add new rule for my ip
+ufw allow proto tcp from $ip_new to $ip_thishost port 22 comment 'my comment'
+# deny all other 
+ufw deny ssh
+
+ufw status
