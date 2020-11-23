@@ -1,0 +1,23 @@
+apt-get install postfix mailutils libsasl2-2 ca-certificates libsasl2-modules
+
+apt-get install mutt
+
+
+https://www.linuxquestions.org/questions/linux-general-1/how-to-configure-mutt-mail-client-for-mail-server-other-that-gmail-855150/
+https://superuser.com/questions/1457769/configuring-mutt-for-office365-displaying-threads-and-sent-mail-correctly
+
+# look $HOME/.muttrc
+# 
+
+
+
+#mutt -s "TestSubject" nospam@gmail.com -a "UserReport.txt"  < MessageBody.txt
+mutt -s "Test some message" some.example@gmail.com <<EOF
+
+$(cat message.txt)
+
+EOF
+
+# send with attachment(s)
+laheta.sh -r malli.muttrc -c cc.copy@some.xx -b bcc.copy@some.xx -t to.some@gmail.com -f my.address@mydomain.fi -s "Subject xyz" -m message.latin1.txt -a doc2.pdf -a doc3.pdf
+
