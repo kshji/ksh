@@ -85,7 +85,7 @@ EOF
     * save the app passwordstring sendemail.sh
 
  * use *mutt* command
- * in basic smtp auth method sendemail.sh ask user password, if not set environment variable SMTPAUTHPASS
+ * basic smtp auth method **sendemail.sh** ask user password, if not set environment variable SMTPAUTHPASS
 
 
 ```sh
