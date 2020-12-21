@@ -14,7 +14,7 @@ SMTP sending using account is easy method, but the authentication to the smtp se
 
 Gmail and O365 support application password and OAuth2.  
 
-When you use 2FA in your account, you need application password or OAuth2 authentication.
+When you use 2FA in your account, you need application password or OAuth2 authentication to use service provider's smtp routing.
 
 I have tested application password. It's "shared" password for application, user can't use this ex. to login.
 
