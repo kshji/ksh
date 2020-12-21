@@ -6,9 +6,14 @@ I use ksh /usr/local/bin/awsh in my scripts. Copy working ksh to the /usr/local/
 
 Most of my scripts works also using some other "about" posix shells: bash, zsh and dash. Dash is 100% Posix.
 
+## Mutt - sendmail.sh ##
+Send email using using smtp-servers (Gmail, Office365, ...).
+
+ * [Sendemail.sh](Mutt)
+
 ## 731.sh ##
 Finnish Payment Reference Number Calculation.
- * [Payment Reference] (https://www.finanssiala.fi/maksujenvalitys/dokumentit/Forming_a_Finnish_reference_number.pdf)
+ * [Payment Reference](https://www.finanssiala.fi/maksujenvalitys/dokumentit/Forming_a_Finnish_reference_number.pdf)
 
 Example: 
  * reference Number 7 => Payment Ref 71
@@ -82,12 +87,12 @@ Check RF is valid
 ```
 
 ### More RF documents, online testing ###
- * [Kansainvälinen RF viite] (https://www.finanssiala.fi/maksujenvalitys/dokumentit/kansainvalisen_viitteen_rakenneohje.pdf)
- * [Javascript] (https://github.com/EDumdum/iso-11649-js)
- * [Php] ( https://github.com/kmukku/php-iso11649/blob/master/src/phpIso11649.php)
- * [Java] (https://github.com/terokallio/reference-numbers/blob/master/src/main/java/com/terokallio/referencenumbers/RFCreditorReference.java)
+ * [Kansainvälinen RF viite](https://www.finanssiala.fi/maksujenvalitys/dokumentit/kansainvalisen_viitteen_rakenneohje.pdf)
+ * [Javascript](https://github.com/EDumdum/iso-11649-js)
+ * [Php](https://github.com/kmukku/php-iso11649/blob/master/src/phpIso11649.php)
+ * [Java](https://github.com/terokallio/reference-numbers/blob/master/src/main/java/com/terokallio/referencenumbers/RFCreditorReference.java)
  * Ksh and bash  my *731.sh* and *RF.sh*
- * [Nordea online generator both format] (https://pankki.nordea.fi/en/corporate-customers/payments/invoicing-and-payments/reference-number-calculator.flex)
+ * [Nordea online generator both format](https://pankki.nordea.fi/en/corporate-customers/payments/invoicing-and-payments/reference-number-calculator.flex)
 
 
 ## sql2csv.sh ##
