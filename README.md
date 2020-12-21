@@ -17,19 +17,19 @@ Why I like it ? Only some commands but enough. No libraries or plugins. Static b
   * Nice HERE template 
   * Very simple and nice socket support 
   * event based scripting is possible using **trap**
-  * For object persons compount item is supported, own methods,  [fpmurphy] (http://blog.fpmurphy.com/2010/05/ksh93-using-types-to-create-object-orientated-scripts.html)
+  * For object persons compount item is supported, own methods,  [fpmurphy](http://blog.fpmurphy.com/2010/05/ksh93-using-types-to-create-object-orientated-scripts.html)
   * lowlevel cgi support 
   * regexp 
-  * [DEBUG Trap] (http://blog.fpmurphy.com/2014/07/korn-shell-debug-trap.html)
+  * [DEBUG Trap](http://blog.fpmurphy.com/2014/07/korn-shell-debug-trap.html)
 
 Thanks for Bourne Shell and 
-[Korn Shell] (https://www.usenix.org/legacy/publications/library/proceedings/vhll/full_papers/korn.ksh.a). 
+[Korn Shell](https://www.usenix.org/legacy/publications/library/proceedings/vhll/full_papers/korn.ksh.a). 
 All posix-sh are nice (ksh, bash, dash, ...), but for scripting I have used ksh93. Dash is full Posix-sh compatible,
 ksh93, bash, ... includes some extensions. Steve Bourne and David Korn are the main persons behind this shells.
 
 ## My Repo ##
-   * [Awk] (https://github.com/kshji/awk)
-   * [Ksh] (https://github.com/kshji/ksh)
+   * [Awk](https://github.com/kshji/awk)
+   * [Ksh](https://github.com/kshji/ksh)
    * Postgresql is coming
 
 ## My env ##
@@ -39,9 +39,9 @@ I use also many Debian x64 servers. My history include many *nix: Ultrix, SCO Op
 MS Xenix, SCO Xenix,  SCO UNixware, HP/UX, SunOS, Solaris, ICL6000, AIX, SNIRM, SNITG, ... ,
 Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
 
-   * [Install Linux Subsystem for Windows 10] (https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
-   * [Install Linux Subsystem and Xming] (http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
-   * [Change bash to ksh default shell (Win10 Linux Subsystem)] (http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
+   * [Install Linux Subsystem for Windows 10](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
+   * [Install Linux Subsystem and Xming](http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
+   * [Change bash to ksh default shell (Win10 Linux Subsystem)](http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
 
 Windows 10 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
 Mostly Windows is only desktop/window manager/gui for me. **Ssh** and **vi** is my main tools.
@@ -58,10 +58,10 @@ Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
        ``` apt-get install ksh ```
    * many *nix system include ksh88 and also ksh93
        * maybe ksh93/posix-sh is in some special directory ex. /usr/xpg4/bin/sh
-   * [build from source] (https://github.com/att/ast/tree/beta)
-   * [Latest binary] (https://build.opensuse.org/repositories/shells:ksh:new:latest) openSuse, Ubuntu (Ubuntu works fine also in Windows WSL and Debian)
-   * [All ksh download] (https://pkgs.org/download/ksh) for CentOS, Debian, Fedora, Mageia, OpenMandriva, openSUSE, PCLinuxOS, ROSA, Ubuntu.
-	* [Old AST Beta] (http://gsf.cococlyde.org/download) Has saved by GSF
+   * [build from source](https://github.com/att/ast/tree/beta)
+   * [Latest binary](https://build.opensuse.org/repositories/shells:ksh:new:latest) openSuse, Ubuntu (Ubuntu works fine also in Windows WSL and Debian)
+   * [All ksh download](https://pkgs.org/download/ksh) for CentOS, Debian, Fedora, Mageia, OpenMandriva, openSUSE, PCLinuxOS, ROSA, Ubuntu.
+	* [Old AST Beta](http://gsf.cococlyde.org/download) Has saved by GSF
    
 If you download ex. ksh_amd64.deb, you can install it:
 ```sh
@@ -119,17 +119,17 @@ After that I have copied correct ksh93 version to the /usr/local/bin/awsh in eve
 Change my "awsh" to your ksh path as you need it.
 
 ## More info ##
-   * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell) finnish
-   * [My shell script guide] (http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell/quickref) My english - sorry ...
+   * [My shell script guide](http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell) finnish
+   * [My shell script guide](http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell/quickref) My english - sorry ...
    
-   * [Unix&Linux Forums] (http://www.unix.com/shell-programming-and-scripting/) 
-   * [Posix-sh] (http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html)
-     * [Posix Shell Commands] (http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html)
-   * [Bash Reference manual] (https://www.gnu.org/software/bash/manual/bashref.html)
-   * [Learning The Korn Shell] (http://docstore.mik.ua/orelly/unix3/korn/index.htm)
-   * [IBM KornShell] (http://www.ibm.com/support/knowledgecenter/ssw_aix_72/com.ibm.aix.osdevice/korn_shell.htm)
-   * [SHELLdorado] (http://www.shelldorado.com/)
-   * [fpmurphy] (http://blog.fpmurphy.com/2009/01/ksh93-regular-expressions.html) Super RegExp examples
+   * [Unix&Linux Forums](http://www.unix.com/shell-programming-and-scripting/) 
+   * [Posix-sh](http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html)
+     * [Posix Shell Commands](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html)
+   * [Bash Reference manual](https://www.gnu.org/software/bash/manual/bashref.html)
+   * [Learning The Korn Shell](http://docstore.mik.ua/orelly/unix3/korn/index.htm)
+   * [IBM KornShell](http://www.ibm.com/support/knowledgecenter/ssw_aix_72/com.ibm.aix.osdevice/korn_shell.htm)
+   * [SHELLdorado](http://www.shelldorado.com/)
+   * [fpmurphy](http://blog.fpmurphy.com/2009/01/ksh93-regular-expressions.html) Super RegExp examples
 
 ## What I have for you ##
 
@@ -140,6 +140,6 @@ Change my "awsh" to your ksh path as you need it.
    * json example, ksh manual include only **read -m json**, but also print and printf support **JSON**
 
 ## Guru scripts ##
-   * [David Korn test patterns ] (https://github.com/att/ast/tree/master/src/cmd/ksh93/tests) 
+   * [David Korn test patterns ](https://github.com/att/ast/tree/master/src/cmd/ksh93/tests) 
 
 
