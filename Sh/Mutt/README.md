@@ -2,7 +2,7 @@
 
 In commandline you can use mail, sendmail, ... to send emails.
 
-[Mutt] (http://www.mutt.org/) include also easy way to use attachments, smtp authentication including Oauth2.
+[Mutt](http://www.mutt.org/) include also easy way to use attachments, smtp authentication including Oauth2.
 
 I have done as so many others: kill my own MTA and moved to use Gmail, Office 365 , ...
 
@@ -67,17 +67,17 @@ EOF
 ## Setup Application Password ##
 
 ### Google Gmail ###
- * [Login MyAccount] (https://myaccount.google.com/)
+ * [Login MyAccount](https://myaccount.google.com/)
  * Left menu Security
- * [Application password] (https://myaccount.google.com/apppasswords)
+ * [Application password](https://myaccount.google.com/apppasswords)
  ** Select application Email
  ** Give some name for this application ex. linux_email or mutt or ...
  ** save the app passwordstring
 
 ### Microsoft Office 365 ###
- * [MyAccount] (https://mysignins.microsoft.com/security-info)
+ * [MyAccount](https://mysignins.microsoft.com/security-info)
  ** admin need force  to you add other methods as 2FA: application password
- *** [User Management] (https://accounts.activedirectory.windowsazure.com)
+ *** [User Management](https://accounts.activedirectory.windowsazure.com)
  *** service settings "tab"
  **** allow users to create app passwords to sign in to non-browser apps
  ** after that you can add method "application password"  [MyAccount] (https://myaccount.google.com/)
