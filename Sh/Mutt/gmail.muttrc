@@ -1,0 +1,37 @@
+# Gmail smtp
+# using application password
+#
+# https://myaccount.google.com/
+# FI: Vasen reuna "Tietoturva" 
+# EN: Left menu Security
+#
+# FI: Googleen kirjautuminen 
+# EN: Google login
+#
+# FI: Sovellussalasanat 
+# EN: Application password
+# 
+# https://myaccount.google.com/apppasswords
+#
+# FI: Valitse sovellus Sähköposti 
+# EN: Select application Email
+#
+# FI: Anna muu esim. palvelin nimi tai mutt tai ...
+# EN: Give some name for this application ex. linux_email or mutt or ...
+#
+# FI: laita sovellussalasana stmp urliin tai aseta smtp_pass
+# EN: set app_password to the url or set smtp_pass
+
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+set from="$sender"
+#set from="some@mydomain.fi"  # can't overwrite account value when using Gmail
+set realname = "My Name" # you can set realname when using Gmail
+# set app password in url using : after account
+# or using smtp_pass
+#set smtp_authenticators = 'gssapi:login'
+#set smtp_url = "smtps://${useraccount}:$smtppassword@smtp.gmail.com:465/"
+set smtp_url = "smtps://${useraccount}@smtp.gmail.com:465/"
+set smtp_pass = "$smtppassword"
+

@@ -1,0 +1,21 @@
+# Example Office365 muttrc
+# using application password 
+# need to use 2FA mode users
+# look o365.muttrc when using older basic authentication smtp auth
+
+# Office365 you can't set realname, use account setup
+
+set ssl_starttls=yes
+set ssl_force_tls=yes
+#set smtp_authenticators = 'gssapi:login'
+
+# Office 365 you can use all your account aliases email in from variable
+set from="$sender"
+set realname = "My Name" # you can't set realname when using Office 365
+# set app password in url using : after account
+# or using smtp_pass
+#set smtp_url = "smtp://${useraccount}:$smtppassword@outlook.office365.com:587/"
+set smtp_url = "smtp://${useraccount}@outlook.office365.com:587/"
+set smtp_pass = "$smtppassword"
+
+

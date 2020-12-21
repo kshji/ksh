@@ -1,0 +1,24 @@
+# Example Office365 muttrc
+# This is template to use Office 365 SMTP with SMTP AUTH
+# 
+# Since 2020 when using 2FA, it's easier to use application password = just like Gmail
+# - look template o365app.muttrc
+#
+set ssl_verify_host = no
+set ssl_verify_dates = no
+set ssl_starttls = no
+# Office365 you can't set realname, use account setup
+#set from = "sender.email@somedomain.fi"
+# butfrom email you can set all those which this account has aliases emails
+set from = "$sender"
+# Office365/Outlook.com add aliases emails to the O365 account which you like to use at "from"
+#  use account or account aliases value in From !!!
+set realname = "not work, use account realname"
+set hostname = "$domain"
+set ssl_starttls = yes
+# outlook.office365.com ja smtp.office365.com both works
+set smtp_url = "smtp://$useraccount@outlook.office365.com:587/"
+#set smtp_url = "smtp://my.account@mydomain.fi@smtp.office365.com:587/"
+set smtp_pass = "$authpasswd"
+set ssl_force_tls = yes
+set smtp_authenticators = "login"
