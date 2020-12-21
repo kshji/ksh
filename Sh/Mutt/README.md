@@ -70,21 +70,19 @@ EOF
  * [Login MyAccount](https://myaccount.google.com/)
  * Left menu Security
  * [Application password](https://myaccount.google.com/apppasswords)
- ** Select application Email
- ** Give some name for this application ex. linux_email or mutt or ...
- ** save the app passwordstring
+ * Select application Email
+ * Give some name for this application ex. linux_email or mutt or ...
+ * save the app passwordstring Microsoft Office 365
 
-### Microsoft Office 365 ###
  * [MyAccount](https://mysignins.microsoft.com/security-info)
- ** admin need force  to you add other methods as 2FA: application password
- *** [User Management](https://accounts.activedirectory.windowsazure.com)
- *** service settings "tab"
- **** allow users to create app passwords to sign in to non-browser apps
- ** after that you can add method "application password"  [MyAccount] (https://myaccount.google.com/)
- ** give some label for this password ex. smtp_mutt
- ** save the app passwordstring
+ * admin need force  to you add other methods as 2FA: application password
+     * [User Management](https://accounts.activedirectory.windowsazure.com)
+       * service settings "tab"
+       * allow users to create app passwords to sign in to non-browser apps
+ * after that you can add method "application password"  [MyAccount] (https://myaccount.google.com/)
+    * give some label for this password ex. smtp_mutt
+    * save the app passwordstring sendemail.sh
 
-## sendemail.sh ##
  * use *mutt* command
  * in basic smtp auth method sendemail.sh ask user password, if not set environment variable SMTPAUTHPASS
 
