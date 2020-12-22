@@ -122,7 +122,7 @@ Change my "awsh" to your ksh path as you need it.
    * [My shell script guide](http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell) finnish
    * [My shell script guide](http://awot.fi/sf/browser/showdocs?cust=ka&subdir=koulutus/shell/quickref) My english - sorry ...
    
-   * [Unix&Linux Forums](https://community.unix.com/c/unix/sco/40)
+   * [Unix&Linux Forums](https://community.unix.com/c/shell-programming-and-scripting/20)
    * archive: [Unix&Linux Forums](http://www.unix.com/shell-programming-and-scripting/) 
    * [Posix-sh](http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html)
      * [Posix Shell Commands](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html)
