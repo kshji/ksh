@@ -111,9 +111,6 @@ Shell script to send sms messages using your Android Phone and https://www.pushb
 
 sslopen is excellent command to make cert files and read cert information.
 
-## ssl.show.cert.date.sh HOST:PORT ##
-This command read host cert and write out period of validity.
-
 ```sh
 # read your cert file
 openssl req -text -noout -verify -in some.csr
@@ -140,6 +137,9 @@ openssl s_client -showcerts -connect host.my.dom:443 < /dev/null 2>/dev/null | o
 
 ```
 
+
+## ssl.show.cert.date.sh HOST:PORT ##
+This command read host cert and write out period of validity.
 
 
 
