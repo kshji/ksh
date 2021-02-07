@@ -34,8 +34,8 @@ ksh93, bash, ... includes some extensions. Steve Bourne and David Korn are the m
 
 ## My env ##
 I use Windows 10 laptop with Linux Subsystem (bash) for development. 
-It's full Ubuntu. Ubuntu 14.04.5 LTS is current version.
-I use also many Debian x64 servers. My history include many *nix: Ultrix, SCO Open Server, 
+It's full Ubuntu. Ubuntu 18.04 LTS is current version.
+I use also many Debian x64 and Ubuntu servers. My history include many *nix: Ultrix, SCO Open Server, 
 MS Xenix, SCO Xenix,  SCO UNixware, HP/UX, SunOS, Solaris, ICL6000, AIX, SNIRM, SNITG, ... ,
 Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
 
@@ -44,7 +44,7 @@ Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
    * [Change bash to ksh default shell (Win10 Linux Subsystem)](http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
 
 Windows 10 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
-Mostly Windows is only desktop/window manager/gui for me. **Ssh** and **vi** is my main tools.
+Mostly Windows is only desktop/window manager/gui for me. **Ssh** , **sh** , **psql** and **vi** is my main tools.
 
 Cygwin and Virtual Machines are history for me.
 Windows 7 laptop includes all those ...
