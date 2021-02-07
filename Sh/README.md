@@ -114,6 +114,34 @@ sslopen is excellent command to make cert files and read cert information.
 ## ssl.show.cert.date.sh HOST:PORT ##
 This command read host cert and write out period of validity.
 
+```sh
+# read your cert file
+openssl req -text -noout -verify -in some.csr
+
+# validate period
+openssl x509 -noout -in some.pem -dates
+
+# read SSL
+#WITH SNI
+openssl s_client -showcerts -servername host.my.dom -connect www.other.dom:443 </dev/null
+
+#WITHOUT SNI 
+openssl s_client -showcerts -connect somehost:443 </dev/null
+
+echo | openssl s_client -servername -servername host.my.dom -connect www.other.dom:443 2>/dev/null | openssl x509 -text
+
+# get cert and write it using some format, example
+openssl s_client -showcerts -connect host.my.dom:443 < /dev/null | openssl x509 -outform DER
+
+# other 
+openssl s_client -showcerts -connect host.my.dom:443 < /dev/null | openssl x509 -text
+openssl s_client -showcerts -connect host.my.dom:443 < /dev/null 2>/dev/null | openssl x509 -noout -dates
+
+
+```
+
+
+
 
 ```sh
 	ssl.show.cert.date.sh somehost:443
