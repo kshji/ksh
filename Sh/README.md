@@ -107,9 +107,10 @@ Shell script to send sms messages using your Android Phone and https://www.pushb
   * Android Phone you need App Pushbullet and setup SMS gateway on
 
 
-## SSL Cert manage ##
+## SSL certificate managing using openssl ##
 
 sslopen is excellent command to make cert files and read cert information.
+I have used sslopen also to make [JWT Tokens](https://github.com/kshji/jwt).
 
 ```sh
 # read your cert file
