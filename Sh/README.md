@@ -107,3 +107,27 @@ Shell script to send sms messages using your Android Phone and https://www.pushb
   * Android Phone you need App Pushbullet and setup SMS gateway on
 
 
+## SSL Cert manage ##
+
+sslopen is excellent command to make cert files and read cert information.
+
+## ssl.show.cert.date.sh HOST:PORT ##
+This command read host cert and write out period of validity.
+
+
+```sh
+	ssl.show.cert.date.sh somehost:443
+	# output
+	2020-12-23 230932 2021-03-23 230932
+	
+```
+
+## ssl.check.period.validity.sh ##
+Check certificate period of validity and make alert using email.
+
+```sh
+	#  Chech certiticate, if validity will end under 14 days, make email alert to the address alerttome.email@mydomain.dom
+	ssl.check.period.validity.sh -h mydomain.dom:443 -p 14 -e alerttome.email@mydomain.dom -s "SSL CERT Alert Domain:"
+	
+```
+
