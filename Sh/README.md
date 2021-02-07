@@ -6,7 +6,7 @@ I use ksh /usr/local/bin/awsh in my scripts. Copy working ksh to the /usr/local/
 
 Most of my scripts works also using some other "about" posix shells: bash, zsh and dash. Dash is 100% Posix.
 
-## Mutt - sendmail.sh ##
+## Mutt - sendemail.sh ##
 Send email using using smtp-servers (Gmail, Office365, ...).
 
  * [Sendemail.sh](Mutt)
