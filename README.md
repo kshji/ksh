@@ -69,12 +69,16 @@ If you download ex. ksh_amd64.deb, you can install it:
 sudo dpkg -i  ksh_amd64.deb
 ```
 
+### ksh source ###
+    
+   * [build from source](https://github.com/ksh93/ksh)
+   * read compiling info from Github page
 
-### Build dynamic library ksh93  ###
 
-   * [Git source current ksh93 u+m](https://github.com/ksh93/ksh)
+#### Build dynamic library ksh93 - org Ast ####
 
-### Build dynamic library ksh93 - org Ast ###
+This doc has done for old AST sources.
+
 ```sh
 # build ksh from and all other ast stuff
 # Tested Debian + Windows Linux Subsystem (Ubuntu)
@@ -92,7 +96,7 @@ install -v -m644 arch/linux.i386-64/man/man1/sh.1 /usr/local/share/man/man1/ksh.
 install -v -m755 -d /usr/local/share/doc/ksh-2014-12-24 
 install -v -m644 lib/package/{ast-open,INIT}.html /usr/local/share/doc/ksh-2014-12-24
 ```
-### Build static ksh93 ###
+#### Build static ksh93 ####
 ```sh
 # build ksh from and all other ast stuff
 # Tested Debian + Windows Linux Subsystem (Ubuntu)
