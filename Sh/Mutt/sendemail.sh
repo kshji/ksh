@@ -101,7 +101,7 @@ if [ "$authpasswd" = "" ] ; then
 	echo "sending ..."
 fi
 
- - which muttrc to use, 
+# - which muttrc to use, 
 tmpf="tmp/$$.rc"
 parse_file "$muttrc" > "$tmpf"
 
