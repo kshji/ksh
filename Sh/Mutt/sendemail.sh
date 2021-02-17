@@ -57,8 +57,10 @@ message=""
 debug=0
 domain=""
 attachments=""
-authpasswd=""
-smtppassword=""
+# - EN: set SmtpAuthPassword using env variable SMTPAUTHPASS or ask from user
+# - FI: voit antaa SMTPAUTHPASS muuttujassa authpasswd tai kysyy tassa kohtaa jattamatta muistiin
+# - Gmail smtp not need SMTPAUTHPASS, use application password, also Office 365 is possible to use application password
+authpasswd="$SMTPAUTHPASS"
 
 while [ $# -gt 0 ]
 do
@@ -72,7 +74,7 @@ do
 		#-a) attachment="$2" ; option="-a" ; shift ;;
 		-a) attachments="$attachments -a $2" ; shift ;;
 		-r) muttrc="$2" ; shift ;;
-		-p) smtppassword="$2" ; shift ;;
+		-p) authpasswd="$2" ; shift ;;
 		-s) subject="$2" ; shift ;;
 		-D) domain="$2" ; shift ;;
 		-d) debug="$2" ; shift ;;
@@ -90,11 +92,7 @@ done
 [ "$domain" = "" ] && usage && exit 6
 [ "$useraccount" = "" ] && usage && exit 7
 
-# - EN: set SmtpAuthPassword using env variable SMTPAUTHPASS or ask from user
-# - FI: voit antaa SMTPAUTHPASS muuttujassa authpasswd tai kysyy tassa kohtaa jattamatta muistiin
-# - Gmail smtp not need SMTPAUTHPASS, use application password, also Office 365 is possible to use application password
-authpasswd="$SMTPAUTHPASS"
-if [ "$authpasswd" = "" -a "$smtppassword" = "" ] ; then
+if [ "$authpasswd" = "" ] ; then
 	printf "user $useraccount password:" 
 	stty -echo
 	read authpasswd
@@ -103,7 +101,7 @@ if [ "$authpasswd" = "" -a "$smtppassword" = "" ] ; then
 	echo "sending ..."
 fi
 
-# - which muttrc to use, 
+ - which muttrc to use, 
 tmpf="tmp/$$.rc"
 parse_file "$muttrc" > "$tmpf"
 

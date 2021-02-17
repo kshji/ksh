@@ -33,5 +33,5 @@ set realname = "My Name" # you can set realname when using Gmail
 #set smtp_authenticators = 'gssapi:login'
 #set smtp_url = "smtps://${useraccount}:$smtppassword@smtp.gmail.com:465/"
 set smtp_url = "smtps://${useraccount}@smtp.gmail.com:465/"
-set smtp_pass = "$smtppassword"
+set smtp_pass = "$authpasswd"
 

@@ -16,6 +16,6 @@ set realname = "My Name" # you can't set realname when using Office 365
 # or using smtp_pass
 #set smtp_url = "smtp://${useraccount}:$smtppassword@outlook.office365.com:587/"
 set smtp_url = "smtp://${useraccount}@outlook.office365.com:587/"
-set smtp_pass = "$smtppassword"
+set smtp_pass = "$authpasswd"
 
 
