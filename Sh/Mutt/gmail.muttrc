@@ -29,7 +29,7 @@ set ssl_force_tls=yes
 
 set from="$sender"
 #set from="some@mydomain.fi"  # can't overwrite account value when using Gmail
-set realname = "My Name" # you can set realname when using Gmail
+set realname = "$sendername" # you can set realname when using Gmail
 # set app password in url using : after account
 # or using smtp_pass
 #set smtp_authenticators = 'gssapi:login'
