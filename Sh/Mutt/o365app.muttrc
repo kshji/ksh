@@ -5,6 +5,7 @@
 
 # Office365 you can't set realname, use account setup
 
+my_hdr From: $sendername <$sender>
 set ssl_starttls=yes
 set ssl_force_tls=yes
 #set smtp_authenticators = 'gssapi:login'

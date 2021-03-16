@@ -22,6 +22,8 @@
 # FI: laita sovellussalasana stmp urliin tai aseta smtp_pass
 # EN: set app_password to the url or set smtp_pass
 
+my_hdr From: $sendername <$sender>
+
 set ssl_starttls=yes
 set ssl_force_tls=yes
 

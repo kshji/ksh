@@ -4,6 +4,7 @@
 # Since 2020 when using 2FA, it's easier to use application password = just like Gmail
 # - look template o365app.muttrc
 #
+my_hdr From: $sendername <$sender>
 set ssl_verify_host = no
 set ssl_verify_dates = no
 set ssl_starttls = no

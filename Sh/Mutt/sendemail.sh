@@ -2,7 +2,7 @@
 # sendmail.sh
 # https://github.com/kshji/ksh/tree/master/Sh/Mutt
 # Jukka Inkeri https://awot.fi
-# Ver:2020-12-20
+# Ver:2021-03-15
 #
 # Tested also with
 #   -Google gmail smtp using app password
@@ -12,7 +12,8 @@
 #  - mutt can handle auth login
 #
 # sendmail.sh -D mydomain.fi -u useraccount -p app_password -m message.latin1.txt -r example.muttrc -c cc.person@email.xx \
-#             -t to.person@gmail.com -f from.user@mudomain.fi -s "Subject text" -a example.pdf -p app_password -d 1
+#             -t to.person@gmail.com -f from.user@mudomain.fi -s "Subject text" -a example.pdf -p app_password -d 1 \
+#	      -n "My Name"
 #
 PRG="$0"
 BINDIR="${PRG%/*}"
@@ -29,7 +30,7 @@ chmod 1777 tmp 2>/dev/null
 ######################################################################
 usage()
 {
-	echo "usage:$PRG -r muttrc -D domain -u useraccount -t to_email -f from_email  -s Subject -m message_file [ -a attachmentfile -b bcc_mailto -c cc_mailto ]" >&2
+	echo "usage:$PRG -r muttrc -D domain -u useraccount -t to_email -f from_email  -s Subject -m message_file [ -a attachmentfile -b bcc_mailto -c cc_mailto -n \"My Name\" ]" >&2
 }
 
 ######################################################################
@@ -57,6 +58,7 @@ message=""
 debug=0
 domain=""
 attachments=""
+sendername=""
 # - EN: set SmtpAuthPassword using env variable SMTPAUTHPASS or ask from user
 # - FI: voit antaa SMTPAUTHPASS muuttujassa authpasswd tai kysyy tassa kohtaa jattamatta muistiin
 # - Gmail smtp not need SMTPAUTHPASS, use application password, also Office 365 is possible to use application password
@@ -70,6 +72,7 @@ do
 		-b) bcc="-b $2"; shift ;;
 		-c) cc="-c $2"; shift ;;
 		-f) sender="$2" ; shift ;;
+		-n) sendername="$2" ; shift ;;
 		-m) message="$2" ; shift ;;
 		#-a) attachment="$2" ; option="-a" ; shift ;;
 		-a) attachments="$attachments -a $2" ; shift ;;
