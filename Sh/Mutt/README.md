@@ -95,12 +95,12 @@ EOF
 
 # using Gmail account and smtp
 # - muttrc, look realname. Gmail accept to change it
-sendemail.sh -D gmail.com -u my.account@gmail.com -r gmail.muttrc -t to.some@example.com -s "Subject Gmail $(date)" -m message.txt -f from my.email@gmail.com  -p my_appgmail_password -a example1.pdf -a example2.pdf 
+sendemail.sh -D gmail.com -u my.account@gmail.com -r gmail.muttrc -t to.some@example.com -s "Subject Gmail $(date)" -m message.txt -f from my.email@gmail.com -n "My Name" -p my_appgmail_password -a example1.pdf -a example2.pdf 
 
 # using Office 365 account and smtp
 # - muttrc, look realname. Office 365 not accept to change it, use always account Realname
 # - muttrc, look from. Office 365 accept to change it, but have to be one of the aliases email which you have setup for account
-sendemail.sh -D some.com -u my.account@some.com -r o365app.muttrc -t to.some@gmail.com -s "Subject O365 $(date)" -m message.txt -f from my.alias@some.com  -p my_appo365_password -a example1.pdf -a example2.pdf 
+sendemail.sh -D some.com -u my.account@some.com -r o365app.muttrc -t to.some@gmail.com -s "Subject O365 $(date)" -m message.txt -f from my.alias@some.com  -n "My Name" -p my_appo365_password -a example1.pdf -a example2.pdf 
 	
 ```
 
