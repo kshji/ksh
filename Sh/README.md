@@ -25,6 +25,7 @@ Look RF.sh. Solution convert Finnish Payment Reference to the International RF-f
 	731.sh 333
         3337
 ```
+Look 731.sql. Same calculation using PostgreSQL function.
 
 ## ip2dec2ip ##
 
