@@ -12,7 +12,7 @@ Send email using using smtp-servers (Gmail, Office365, ...).
  * [Sendemail.sh](Mutt)
 
 ## 731.sh ##
-Finnish Payment Reference Number Calculation.
+Finnish Payment Reference Number Calculation. Modulus 10 using weight 731.
  * [Payment Reference](https://www.finanssiala.fi/maksujenvalitys/dokumentit/Forming_a_Finnish_reference_number.pdf)
 
 Example: 
@@ -26,6 +26,17 @@ Look RF.sh. Solution convert Finnish Payment Reference to the International RF-f
         3337
 ```
 Look 731.sql. Same calculation using PostgreSQL function.
+
+## 21.sh ##
+Modulus 10 using weight 21. Swedish payment reference number calculation.
+Credit card numbers, SMI card numbers, ....
+
+ * [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
+
+```sh
+	21.sh 9999
+        99994
+```
 
 ## ip2dec2ip ##
 
