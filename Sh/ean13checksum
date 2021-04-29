@@ -1,0 +1,66 @@
+#!/usr/bin/ksh
+#ean13checksum
+# http://www.gs1.org/how-calculate-check-digit-manually
+# 131313 ... checksum
+PRG=$0
+
+############################################################
+dbg()
+{
+	((debug < 1 )) && return
+	echo "$*" >&2
+}
+
+############################################################
+usage()
+{
+	echo "usage:$PRG [-d 0|1] code $*" >&2
+}
+
+############################################################
+# MAIN
+############################################################
+
+v13="1313131313131313131313131313131313131313131313131313"
+
+debug=0
+while [ $# -gt 0 ]
+do
+	arg="$1"
+	case "$arg" in
+		-d) debug="$2" ; shift ;;
+		--) shift; break ;;
+		-*) usage ; exit 1 ;;
+		*) break ;;
+	esac	
+	shift
+done
+
+number="$1"
+[ "$number" = "" ] && usage && exit 2
+
+sum=0
+i=0
+len=${#number}
+while ((i<len))
+do
+	c=${number:$i:1}
+	factor=${v13:$i:1}
+	((result=c*factor))
+	((sum+=result))
+	dbg "DBG: $i $c x $factor = $result , sum:$sum"
+	((i+=1))
+done
+
+dbg "sum:$sum"
+
+
+# - next div by 10 if not already
+((tencnt=sum/10))
+((rem=sum%10))
+((rem>0)) && ((tencnt+=1))
+
+dbg "Ten (10):$tencnt"
+((diff=tencnt*10-sum))
+echo "$diff $number$diff"
+
