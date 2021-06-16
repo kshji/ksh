@@ -11,7 +11,7 @@
 #
 # need root access to execute
 # 
-# Ver: Jukka Inkeri 2020-09-19
+# Ver: Jukka Inkeri 2021-06-16
 # https:/awot.fi
 # https://github.com/kshji
 #
@@ -84,6 +84,8 @@ ip_new=""
 debug=0
 ip_thishost=$(myip)
 
+FORCE=0
+previp=""
 
 while [ $# -gt 0 ]
 do
@@ -97,6 +99,9 @@ do
 			;;
 		--template|-t) # template file
 			template="$2" ; shift 
+			;;
+		--previp|-p) # reset prev ip - set something else as current
+				previp="$2" ; shift 
 			;;
 		-*) usage ; exit 1 ;;
 		*) break ;;
@@ -112,8 +117,10 @@ ip=$(lookupip "$hostname")
 [ "$ip" = "" ] && err "can't resolve $hostname" && exit 4
 dbg "$hostname ip:$ip"
 
-file_ip_prev="$hostdir/$hostname.ip"
 
+file_ip_prev="$hostdir/$hostname.ip"
+[ "$previp" != "" ] && echo "ip_prev=$previp" > $file_ip_prev
+((debug>0)) && echo "file_ip_prev $file_ip_prev" >&2
 [ ! -f "$file_ip_prev" ] && ip_prev="999.999.999.999"
 [  -f "$file_ip_prev" ] && . "$file_ip_prev"
 
@@ -125,7 +132,9 @@ dbg "Previous ip:$ip_prev Now ip:$ip"
 [ "$ip_prev" = "$ip" ] && exit 0  # no changes
 
 new_ip="$ip"
+((debug>0)) && echo "new_ip $new_ip - $ip" >&2
 
+export new_ip ip ip_prev
 # excute rule template
 . "$template"
 
