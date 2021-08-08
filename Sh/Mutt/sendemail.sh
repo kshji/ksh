@@ -107,6 +107,7 @@ fi
 # - which muttrc to use, 
 tmpf="tmp/$$.rc"
 parse_file "$muttrc" > "$tmpf"
+((debug>0)) && echo "$muttrc $tmpf" >&2
 
 # - use temporary muttrc
 # Examlpe to use mutt
