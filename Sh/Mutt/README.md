@@ -104,4 +104,12 @@ sendemail.sh -D some.com -u my.account@some.com -r o365app.muttrc -t to.some@gma
 	
 ```
 
+## Errors ##
+If you got error: postdrop: warning: unable to look up public/pickup: No such file or directory
+then you need fix postfix as root
+```
+mkfifo /var/spool/postfix/public/pickup
+#And then, restart the service :
+service postfix restart
+```
 
