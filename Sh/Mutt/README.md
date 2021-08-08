@@ -25,7 +25,7 @@ Ubuntu/Debian install:
 ```sh
 apt-get install postfix mailutils libsasl2-2 ca-certificates libsasl2-modules
 # need using Oauth2
-apt-get instgall gpg
+apt-get install gpg
 # mutt
 apt-get install mutt
 ```
