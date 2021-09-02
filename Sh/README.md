@@ -172,3 +172,14 @@ Check certificate period of validity and make alert using email.
 	
 ```
 
+## oracle2csv.sh
+Dump Oracle database table to the csv file.
+Create csvout directory. Output data to the csvout directory.
+
+```sh
+	# use default delimiter
+	oracle2csv.sh -t tablename
+	# set delimiter
+	oracle2csv.sh -t tablename -d ";"
+
+	
