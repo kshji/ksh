@@ -63,6 +63,7 @@ sendername=""
 # - FI: voit antaa SMTPAUTHPASS muuttujassa authpasswd tai kysyy tassa kohtaa jattamatta muistiin
 # - Gmail smtp not need SMTPAUTHPASS, use application password, also Office 365 is possible to use application password
 authpasswd="$SMTPAUTHPASS"
+contenttype=""
 
 while [ $# -gt 0 ]
 do
@@ -74,6 +75,7 @@ do
 		-f) sender="$2" ; shift ;;
 		-n) sendername="$2" ; shift ;;
 		-m) message="$2" ; shift ;;
+		-h) message="$2" ; contenttype="html" ; shift ;;
 		#-a) attachment="$2" ; option="-a" ; shift ;;
 		-a) attachments="$attachments -a $2" ; shift ;;
 		-r) muttrc="$2" ; shift ;;
@@ -121,13 +123,23 @@ parse_file "$muttrc" > "$tmpf"
 # EOF
 
 # send mail
-mutt -F $tmpf -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments <<EOF
+if [ "$contenttype" = "html" ] ; then
+
+	((debug>0)) && echo "mutt -F $tmpf -e "set content_type=text/html" -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments" >&2
+	parse_file "$message" | mutt -F $tmpf -e "set content_type=text/html" -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments 
+	mutt -F $tmpf -e "set content_type=text/html" -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments <<EOF
+$(parse_file $message)
+EOF
+else
+	((debug>0)) && echo "mutt -F $tmpf -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments" >&2
+	mutt -F $tmpf -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments <<EOF
 
 $(parse_file $message)
 
 EOF
+fi
 
 # - remove temporary muttrc
 ((debug>0)) && cat "$tmpf"
-rm -f "$tmpf"     2>/dev/null
+((debug<2)) && rm -f "$tmpf"     2>/dev/null
 
