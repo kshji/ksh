@@ -4,9 +4,11 @@
 # Basic lisence 100 message / months , 0 e
 # Pro unlimited, https://www.pushbullet.com/pro, some $ / month
 
-#  sms.sh -p +35804001001001 -s "My message 4u"
+#  sms.sh -p +3584001001001 -s "My message 4u"
+#  sms.sh -a accesstoken -p +3584001001001 -s "My message 4u"
+#  sms.sh -a accesstoken -m deviceiden -p +3584001001001 -s "My message 4u"
 #  sms.sh -u  # user
-#  sms.sh -d  # devices
+#  sms.sh -d  # devices, need to run once to get device iden
 #  sms.sh --debug 1  # debug 0|1
 # 
 # api doc https://docs.pushbullet.com/
@@ -30,12 +32,13 @@ chmod 1777 tmp 2>/dev/null
 #########################################################################
 usage()
 {
-   echo "usage:$PRG -p phonenro -s sms_message | -u user | -d devices [ --debug 0|1  ] " >&2
+   echo "usage:$PRG -p phonenro -s sms_message [ -a apikey ] [ -m mobiledevice ] | -u user | -d devices [ --debug 0|1  ] " >&2
 }
 
 #########################################################################
 devices()
 {
+	((debug>0)) && echo "apikey:$apikey" >&2
 	curl -s --header "Access-Token: $apikey" https://api.pushbullet.com/v2/devices --output data/device.json
 	jq . data/device.json
 }
@@ -43,6 +46,7 @@ devices()
 #########################################################################
 user()
 {
+	((debug>0)) && echo "apikey:$apikey" &2
 	curl -s --header "Access-Token: $apikey" https://api.pushbullet.com/v2/users/me --output data/user.json
 
 	jq . data/user.json
@@ -90,16 +94,21 @@ curl  -q -X POST -H "Access-Token: $apikey" -H 'Content-Type: application/json' 
 
 phonenr=""
 debug=0
-export apikey smsiden phonenr debug
+commands=""
+smsmsg=""
+sentsms=0
+export apikey smsiden phonenr debug smsmsg
 while [ $# -gt 0 ]
 do
 	arg="$1"
 	case "$arg" in
-		-u) user ;;
-		-d) devices ;;
+		-u) commands="${commands}user " ;;
+		-d) commands="${commands}devices " ;;
 		 # also comma separated list of phonenumbers is legal
 		-p) phonenr="$2"; shift ;;
-		-s) sms_send "$phonenr" "$2"; shift ;;
+		-a) apikey="$2"; shift ;;
+		-m) smsiden="$2" ; shift  ;;
+		-s) sentsms=1; smsmsg="$2"; shift ;;
 		--debug) debug=$2; shift ;;
 		--) shift; break ;;
 		-*) usage; exit 1 ;;
@@ -108,3 +117,10 @@ do
 	shift
 done
 
+for cmd in $commands
+do
+	((debug>0)) && echo "cmd:$cmd $apikey" >&2
+	$cmd
+done
+
+((sentsms>0 )) && sms_send "$phonenr" "$smsmsg"

@@ -117,7 +117,25 @@ Shell script to send sms messages using your Android Phone and https://www.pushb
   * Basic lisence is free, limit 100 sms / month
   * Pro lisense is unlimited, only some dollars / month
   * Android Phone you need App Pushbullet and setup SMS gateway on
+  * Userid is your Google account
+  * Your linked devices has done installing Pushpullet App to your Android device
+  * [Devives](https://www.pushbullet.com/#devices)
+  * You can send SMS using API, but also install Pushpullet Client (Windows, Android, Chrome and Firefox)
+  * In API using you need Access Token, which are created on on page [Settings](https://www.pushbullet.com/#settings/account) using button **Get Access Tokken**
 
+### 1st run ###
+Need to get your devices list
+```sh
+sms.sh -a "your_access_token" -d
+# look Mobile gateway device **iden** value
+# "iden": "xyx6uoPPabx72443sdsdxs",
+```
+### Send SMS ###
+
+```sh
+#sms.sh -a "your_access_token" -m "gatewayy_mobiledevice iden" -p smsphonenumber -s "SMS_message"
+sms.sh -a "your_access_token" -m "xyx6uoPPabx72443sdsdxs" -p 358999999 -s "Hello World, my message 4u"
+```
 
 ## SSL certificate managing using openssl ##
 
