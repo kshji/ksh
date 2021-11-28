@@ -1,11 +1,12 @@
 #!/usr/local/bin/awsh
 # ssl.check.period.validity.sh
-# Jukka Inkeri 2021-02-05
+# Jukka Inkeri 2021-11-28
 #
 # ssl.check.period.validity.sh  -h some.dom:443 -p 7 -e some.email@mydomain.some -s "Cert. exp. "
 #
 # License: https://github.com/kshji/ksh/blob/master/LICENSE.md under The Unlicense
 # 
+# If exist value is > 99 then need renew
 
 PRG="$0"
 BINDIR="${PRG%/*}"
@@ -18,6 +19,8 @@ export LC_ALL
 
 mkdir -p tmp 2>/dev/null
 chmod 1777 tmp 2>/dev/null
+
+. ./setup
 
 #################################################################
 usage()
@@ -78,12 +81,13 @@ done
 ((daycap = epocend/day-epoctoday/day))
 (( daycap> dayleft )) && echo "ok $end - $daycap" && exit 0
 
-echo "Not so much time to renew certificate!"
-echo "Certificate is valid to $end"
+echo "renew $end - $daycap"
+echo "Not so much time to renew certificate!" >&2
+echo "Certificate is valid to $end" >&2
 
 
 # if no email address then exit
-[ "$email" = "" ] && exit 0
+[ "$email" = "" ] && exit 100
 
 mkdir -p tmp 2>/dev/null
 chmod 1777 tmp 2>/dev/null
@@ -97,7 +101,9 @@ last date: $end
 EOF
 
 # Send email example using Mutt via Gmail app apiuserkey
+
 Mutt/sendemail.sh -D gmail.com -u my.user@gmail.com -r Mutt/gmail.muttrc -t "$email" -s "$subject $host $(date)" -m "$tf" -f my.user@gmail.com  -p MYAPPKEY
 
 rm -f "$tf" 2>/dev/null
 
+exit 101
