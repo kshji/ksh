@@ -56,7 +56,8 @@ Convert ip address to the decimal format and reverse
 ## Date calculation datecalc.sh and julian_date_calculation.sh
  * datecalc.sh which use ksh printf and command GNU date calculation
 
- * julian_date_calculation.sh use conversion algorithm is due to Henry F. Fliegel and Thomas C. Van Flandern (1968).  [Julian and Gregorian Day Numbers](http://www.stiltner.org/book/bookcalc.htm).
+ * julian_date_calculation.sh use conversion algorithm is due to Henry F. Fliegel and Thomas C. Van Flandern (1968).  [Julian and Gregorian Day Numbers](http://www.stiltner.org/book/bookcalc.htm). 
+This calendar is not so limited, usable time period is huge.
 
 ## parsercsv.sh ##
 
