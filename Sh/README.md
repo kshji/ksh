@@ -53,6 +53,11 @@ Convert ip address to the decimal format and reverse
 	192.168.10.10
 ```
 
+## Date calculation datecalc.sh and julian_date_calculation.sh
+ * datecalc.sh which use ksh printf and command GNU date calculation
+
+ * julian_date_calculation.sh use conversion algorithm is due to Henry F. Fliegel and Thomas C. Van Flandern (1968).  [Julian and Gregorian Day Numbers](http://www.stiltner.org/book/bookcalc.htm).
+
 ## parsercsv.sh ##
 
 Simple csv parser using read -S optins. So simple.
