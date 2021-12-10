@@ -38,6 +38,26 @@ Credit card numbers, SMI card numbers, ....
         99994
 ```
 
+## Barcode printing using only javascript and html - SVG ##
+
+**barcode.js.html** is example how to make browser based label printing with barcodes.
+
+Previously I have used command **barcode** and **zint**. Problem is image quality, because those command
+create image. **Fly** you can make image using drawing command. 128table.txt include bitmaps rules for 
+[fly](http://www.w3perl.com/fly/) to create ex. code128 gifs (or png).
+
+For [QR-code](https://github.com/fukuchi/libqrencode).
+
+On the webpage the best quality has done using pure javascript to create vector barcode (SVG) using 
+[JsBarcode](https://github.com/lindell/JsBarcode)
+ * Code128
+ * EAN
+ * Code39
+ * ITF
+ * MSI
+ * Pharmacode
+ * Codabar
+
 ## ip2dec2ip ##
 
 Convert ip address to the decimal format and reverse
