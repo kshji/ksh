@@ -1,0 +1,203 @@
+<HTML>
+</HEAD>
+<STYLE>
+
+body {  font-family: verdana, "Trebuchet MS", geneva, helvetica, tahoma, arial, sans-serif;
+		font-size: 0.93em;
+        margin: 0px;
+        padding: 0px;
+	background-color: #fff;
+	overflow-y: scroll;
+	overflow-x: hidden;
+      }
+LI,UL,COL,COLGROUP,TABLE,TBODY,TD,TR {
+		font-family: arial,helvetica, sans-serif;
+       		font-size: 0.93em;
+ 		text-decoration:        normal;
+  		border-color:   #fff;
+	 	text-align: left;
+	 	vertical-align:top ;
+	 	border-style:   none;
+  }
+TD {
+		/*border: 1px solid #ccc;*/
+		border: none;
+	}
+small { font-size: 0.85em;
+	 font-family: arial,helvetica, sans-serif;
+}
+#wrapper, #content {
+ width: auto;
+ border: 0;
+ margin: 0 0%;
+ padding: 0;
+ float: none !important;
+ }
+
+/* Default left, right, top, bottom margin is 2cm */
+@page { margin: 2mm } 
+
+/* First page, 10 cm margin on top */
+@page :first {
+  margin-top: 2mm;
+}
+
+/* Left pages, a wider margin on the left */
+@page :left {
+  margin-left: 1mm;
+  margin-right: 1mm;
+}
+
+@page :right {
+  margin-left: 1mm;
+  margin-right: 1mm;
+}
+
+/* bottom-center */
+
+
+@page {
+  /*size: A4 portrait;*/
+  size: 44mm 23mm landscape; /* output size */
+}
+
+table, figure {
+  page-break-inside: avoid;
+}
+
+@media print {
+  body {
+  	size: 44mm 23mm landscape; /* output size */ /*Chrome fix */
+	margin: 2mm;
+	}
+  div.header {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    color:#CCC;
+    background:#333;
+    padding:8px;
+  }
+  div.pagebreak {
+   page-break-after: always;
+   }
+
+  div.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    color: white;
+    text-align: center;
+    }
+/*
+html, body, td , tr { float: none; }
+*/
+  .break-after {
+    display: block;
+    page-break-after: always;
+    position: relative;
+}
+
+  /*tr { page-break-after: always; }*/
+  /*td { height:18px } */
+  /*div.barcodeprint { display: none; }*/
+  div.barcodeprint { font-family: arial,helvetica, sans-serif;
+                font-size: 12px;
+                text-decoration:        normal;
+		page-break-after: always;
+                page-break-inside: avoid;
+                }
+  td.tuote      { font-family: verdana,arial,helvetica, sans-serif;
+                font-size: 16px;
+                text-decoration:        normal; 
+		font-weight: bold;
+		}
+  td.product     { font-family: arial,helvetica, sans-serif;
+                font-size: 10px;
+                text-decoration:        normal; 
+		font-weight: bold;
+		}
+  td.price     { font-family: arial,helvetica, sans-serif;
+                font-size: 24px;
+                text-decoration:        normal; 
+		font-weight: bold;
+		}
+  td.barcode     { font-family: arial,helvetica, sans-serif;
+                font-size: 16px;
+                text-decoration:        normal; 
+		margin: 3mm;
+		}
+  tr.pagebreak { height:1px; page-break-after: always ; }
+}
+
+
+@media screen {
+  div.barcode { background-color: #fff; 
+	page-break-after: always;
+        page-break-inside: avoid;
+	}
+  div.header { display: none; }
+  div.footer { display: none; }
+  div.pagebreak { display: none; }
+  td.tuote      { font-family: verdana,arial,helvetica, sans-serif;
+                font-size: 16px;
+                text-decoration:        normal; 
+		}
+  td.product     { font-family: arial,helvetica, sans-serif;
+                font-size: 12px;
+                text-decoration:        normal; 
+		}
+  td.price     { font-family: arial,helvetica, sans-serif;
+                font-size: 20px;
+                text-decoration:        normal; 
+		}
+  td.barcode     { font-family: arial,helvetica, sans-serif;
+		margin-left: 2px;
+                font-size: 12px;
+                text-decoration:        normal; 
+		}
+}
+
+
+svg {
+  /*margin: 5px;*/
+}
+</STYLE>
+
+    <script src="JsBarcode.all.min.js"></script>
+
+</HEAD>
+<BODY>
+<!-- https://github.com/lindell/JsBarcode/ -->
+<div class="barcodeprint">
+<table style="margin-top: 0px; border-style:   none;">
+<tr><td class="product">Nimike1 - product1</td></tr>
+<tr><td class="barcode"><svg id="code128"></svg></img></td></tr>
+</table>
+</div>
+<div class="barcodeprint">
+<table style="margin-top: 0px; border-style:   none;">
+<tr><td class="product">Nimike2 - product2</td></tr>
+<tr><td class="barcode"><svg id="code128A"></svg></img></td></tr>
+</table>
+</div>
+<div class="barcodeprint">
+<table style="margin-top: 0px; border-style:   none;">
+<tr><td class="product">Virtuaaliviivakoodi1i - virtualbankbarcode</td></tr>
+<tr><td class="barcode"><svg id="code128C"></svg></img></td></tr>
+</table>
+<script type="text/javascript">
+JsBarcode("#code128", "%5010050002300064",{width:1.4, height:30, fontSize: 16});
+JsBarcode("#code128A", "%5010050002300064", {format: 'code128', width:1.4, height:30, fontSize: 16 });
+JsBarcode("#code128C", "451577005200591860002400000000000000000000001119211129", {format: 'code128c', width:1.4, height:30, fontSize: 16 });
+</script>
+
+<script type="text/javascript">
+window.onload=function(){self.print();}
+</script>
+
+</BODY>
+</HTML>
