@@ -58,6 +58,15 @@ On the webpage the best quality has done using pure javascript to create vector 
  * Pharmacode
  * Codabar
 
+## pankkivirtuaaliviivakoodi.sh ##
+Virtual barcode for payments in Bank systems in Finland.
+
+```sh
+	pankkivirtuaaliviivakoodi.sh -v 1119 -e 211129 -s 24000 -t "FI19 1999 9999 9999 99"
+	# 419199999999999990002400000000000000000000001119211129
+```
+
+
 ## ip2dec2ip ##
 
 Convert ip address to the decimal format and reverse
