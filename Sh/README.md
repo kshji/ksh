@@ -59,7 +59,7 @@ On the webpage the best quality has done using pure javascript to create vector 
  * Codabar
 
 ## pankkivirtuaaliviivakoodi.sh ##
-Virtual barcode for payments in Bank systems in Finland.
+Finnish Payment Virtualbarcode.
 
 ```sh
 	pankkivirtuaaliviivakoodi.sh -v 1119 -e 211129 -s 24000 -t "FI19 1999 9999 9999 99"
