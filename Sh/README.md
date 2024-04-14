@@ -113,7 +113,7 @@ Tools for those who need update firewall (iptable, UFW, ...) to change dynamic i
 ```
   * add execute to cron , ex. 10 06 * * * /some/path/allowdynamic.sh --hostname mydyn.duckdns.org 
 
-## RF.sh ##
+## RF.sh 
 International Payment Reference Number Calculation. 
 Use this also to convert Finnish Payment Refrence Number To the RF format.
 
@@ -135,18 +135,8 @@ Check RF is valid
 
 ### More RF documents, online testing ###
  * [Kansainvälinen RF viite](https://www.finanssiala.fi/maksujenvalitys/dokumentit/kansainvalisen_viitteen_rakenneohje.pdf)
- * [Javascript](https://github.com/EDumdum/iso-11649-js)
- * [Php](https://github.com/kmukku/php-iso11649/blob/master/src/phpIso11649.php)
- * [Java](https://github.com/terokallio/reference-numbers/blob/master/src/main/java/com/terokallio/referencenumbers/RFCreditorReference.java)
- * Ksh and bash  my *731.sh* and *RF.sh*
- * [Nordea online generator both format](https://pankki.nordea.fi/en/corporate-customers/payments/invoicing-and-payments/reference-number-calculator.flex)
 
-
-## sql2csv.sh ##
-
-Example how to convert Postgresql data to the csv. 
-
-## sms.sh ##
+## sms.sh 
 
 Shell script to send sms messages using your Android Phone and https://www.pushbullet.com/ gateway.
   * Basic lisence is free, limit 100 sms / month
@@ -158,7 +148,7 @@ Shell script to send sms messages using your Android Phone and https://www.pushb
   * You can send SMS using API, but also install Pushpullet Client (Windows, Android, Chrome and Firefox)
   * In API using you need Access Token, which are created on page [Settings](https://www.pushbullet.com/#settings/account) using button **Get Access Token**
 
-### 1st run ###
+### 1st run 
 Need to get your devices list
 ```sh
 sms.sh -a "your_access_token" -d
@@ -172,7 +162,7 @@ sms.sh -a "your_access_token" -d
 sms.sh -a "your_access_token" -m "xyx6uoPPabx72443sdsdxs" -p 358999999 -s "Hello World, my message 4u"
 ```
 
-## SSL certificate managing using openssl ##
+## SSL certificate managing using openssl 
 
 sslopen is excellent command to make cert files and read cert information.
 I have used sslopen also to make [JWT Tokens](https://github.com/kshji/jwt).
@@ -204,7 +194,7 @@ openssl s_client -showcerts -connect host.my.dom:443 < /dev/null 2>/dev/null | o
 ```
 
 
-## ssl.show.cert.date.sh HOST:PORT ##
+## ssl.show.cert.date.sh HOST:PORT 
 This command read host cert and write out period of validity.
 
 
@@ -216,7 +206,7 @@ This command read host cert and write out period of validity.
 	
 ```
 
-## ssl.check.period.validity.sh ##
+## ssl.check.period.validity.sh 
 Check certificate period of validity and make alert using email.
 
 ```sh
@@ -234,9 +224,10 @@ Create csvout directory. Output data to the csvout directory.
 	oracle2csv.sh -t tablename
 	# set delimiter
 	oracle2csv.sh -t tablename -d ";"
+```
 
 	
-## uuidv7.sh ##
+## uuidv7.sh 
 Uuidv7 begin with timestamp = sort is easy using uuidv7 and no need to save timestamp.
 
 uuidv7.sh return 
