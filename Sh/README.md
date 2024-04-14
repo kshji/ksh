@@ -236,3 +236,24 @@ Create csvout directory. Output data to the csvout directory.
 	oracle2csv.sh -t tablename -d ";"
 
 	
+## uuidv7.sh ##
+Uuidv7 begin with timestamp = sort is easy using uuidv7 and no need to save timestamp.
+
+uuidv7.sh return 
+ * uuidv7
+ * timestamp
+ * epoch + 3 number from nanoseconds
+
+```sh
+uuidv7.sh
+018edcc9-dd33-76cd-adb2-6e0830d1401c|2024-04-14 16:26:40.695|1713101200691
+
+# reverse, take timestamp from uuidv7
+uuidv -r "018edcc9-dd33-76cd-adb2-6e0830d1401c"
+2024-04-14 16:26:40.691
+
+# uuidv4 using OpenSSL rand
+uuidv7.sh -s
+acbfee75-cbb4-441a-b5f5-a0841a528e64
+```
+
