@@ -55,22 +55,6 @@ uuidV7()
 }
 
 #####################################################
-uuidV7old()
-{
-	[ "$SRANDOM" = "" ] && echo "err: need SRANDOM support, https://github.com/ksh93/ksh" >&2 && exit
-	s0=$(printf "%(%10s%3N)T" now)   # epoch + nano
-	st=$(printf "%(%Y-%m-%d %H:%M:%S.%3N)T" now)
-	s1=${s0:0:10} ## epoch
-	((s2=(s1*1000) >> 16 ))
-	((s4=( s0 & (0xffff)) ))
-	((rand1=0x7000 + (SRANDOM % 0x0fff) ))
-	((rand2=0x8000 + (SRANDOM % 0x3fff) ))
-	((rand3= (SRANDOM ) >> 8 ))
-	((rand4= (SRANDOM ) >> 8 ))
-	printf '%08x-%04x-%04x-%04x-%06x%06x|%s|%s\n' $s2 $s4 $rand1 $rand2 $rand3 $rand4 "$st" $s0
-}
-
-#####################################################
 uuidv72timestamp()
 {
      	Xuuidv7="$1"
