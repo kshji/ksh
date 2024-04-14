@@ -230,6 +230,10 @@ Create csvout directory. Output data to the csvout directory.
 ## uuidv7.sh 
 Uuidv7 begin with timestamp = sort is easy using uuidv7 and no need to save timestamp.
 
+  * [IETF](https://www.ietf.org/archive/id/draft-peabody-dispatch-new-uuid-format-04.html)
+  * [Why uuidv7 is better ...](https://itnext.io/why-uuid7-is-better-than-uuid4-as-clustered-index-edb02bf70056)
+  * [Good bye integers, welcome uuids](https://buildkite.com/blog/goodbye-integers-hello-uuids)
+
 uuidv7.sh return:
  * uuidv7
  * timestamp
