@@ -33,23 +33,23 @@ ksh93, bash, ... includes some extensions. Steve Bourne and David Korn are the m
    * Postgresql is coming
 
 ## My env ##
-I use Windows 10 laptop with Linux Subsystem (bash) for development. 
+I use Windows 10/11 laptop with Linux Subsystem for development (WSL2).
 It's full Ubuntu. Ubuntu 18.04 LTS is current version.
 I use also many Debian x64 and Ubuntu servers. My history include many *nix: Ultrix, SCO Open Server, 
 MS Xenix, SCO Xenix,  SCO UNixware, HP/UX, SunOS, Solaris, ICL6000, AIX, SNIRM, SNITG, ... ,
 Linux distros: SuSe, Debian, Centos, RedHat, Ubuntu, Raspbian, ...
 
-   * [Install Linux Subsystem for Windows 10](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
+   * [Install Linux Subsystem for Windows 10/11](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
    * [Install Linux Subsystem and Xming](http://www.hongkiat.com/blog/bash-ubuntu-windows-10/)
    * [Change bash to ksh default shell (Win10 Linux Subsystem)](http://blog.fpmurphy.com/2016/05/korn-shell-launcher-for-windows-subsystem-for-linux-2.html)
 
-Windows 10 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
+Windows 10/11 Linux Subsystem has been nice. The Best Windows software for me with Xming. 
 Mostly Windows is only desktop/window manager/gui for me. **Ssh** , **sh** , **psql** and **vi** is my main tools.
 
 Cygwin and Virtual Machines are history for me.
 Windows 7 laptop includes all those ...
 
-Win10 bash (x64) is binary compatible with Ubuntu and Debian. I tested:
+Win10/11 WSL2 (x64) is binary compatible with Ubuntu and Debian. I tested:
   * build att ksh93 from source, standalone version.
   * copy ksh93 to the Win10 bash and run it
 
