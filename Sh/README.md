@@ -240,7 +240,7 @@ uuidv7.sh
 018edcc9-dd33-76cd-adb2-6e0830d1401c|2024-04-14 16:26:40.695|1713101200691
 
 # reverse, take timestamp from uuidv7
-uuidv -r "018edcc9-dd33-76cd-adb2-6e0830d1401c"
+uuidv7.sh -r "018edcc9-dd33-76cd-adb2-6e0830d1401c"
 2024-04-14 16:26:40.691
 
 # uuidv4 using OpenSSL rand
