@@ -50,6 +50,8 @@ uuidV7()
 	if (( bash == 1 )) ; then
 		epochnano=${EPOCHREALTIME}
 		epochnano=${epochnano:0:10}${epochnano:11:3}
+		# 4 random bigint
+		RANDOMS=( $(shuf -i 0-9999999999 -n 4) )
 	fi
 	(( Xdbg>0 )) && echo "Epochnano: $epochnano" >&2
 	epoch=${epochnano:0:10} ## epoch
@@ -59,13 +61,13 @@ uuidV7()
 	(( bash==1)) && st=$(printf "%(%Y-%m-%d %H:%M:%S)T.%s" "$epoch" "$nano" )
 	((s2=(epoch*1000) >> 16 ))
 	((s4=( epochnano & (0xffff)) ))
-	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	(( bash == 1 )) && SRANDOM=${RANDOMS[0]}
 	((rand1=0x7000 + (SRANDOM % 0x0fff) ))
-	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	(( bash == 1 )) && SRANDOM=${RANDOMS[1]}
 	((rand2=0x8000 + (SRANDOM % 0x3fff) ))
-	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	(( bash == 1 )) && SRANDOM=${RANDOMS[2]}
 	((rand3= (SRANDOM ) >> 8 ))
-	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	(( bash == 1 )) && SRANDOM=${RANDOMS[3]}
 	((rand4= (SRANDOM ) >> 8 ))
 	printf '%08x-%04x-%04x-%04x-%06x%06x|%s|%s\n' $s2 $s4 $rand1 $rand2 $rand3 $rand4 "$st" $epochnano
 
