@@ -1,7 +1,9 @@
 #!/usr/local/bin/awsh
+# OR /usr/bin/bash
+#
 # uuidv7.sh
 # https://github.com/kshji/ksh/tree/master/Sh
-# Jukka Inkeri 2024-04-15
+# Jukka Inkeri 2024-04-16
 # 
 # https://github.com/kshji/ksh/blob/master/LICENSE.md
 #
@@ -9,6 +11,11 @@
 # # and variable SRANDOM
 # https://github.com/ksh93/ksh
 # My awsh has build using https://github.com/ksh93/ksh
+#
+# And bash version have to >= 5
+# using variable EPOCHREALTIME
+# bash need command shuf to generate bigint random
+#
 
 #####################################################
 usage()
@@ -28,7 +35,7 @@ uuid_ssl()
 #####################################################
 uuidV7()
 {
-	[ "$SRANDOM" = "" ] && echo "err: need SRANDOM support, https://github.com/ksh93/ksh" >&2 && exit
+	[ "$KSH_VERSION" != "" -a "$SRANDOM" = "" ] && echo "err: need ksh SRANDOM support, https://github.com/ksh93/ksh" >&2 && exit
 	Xdbg=0
 	while [ $# -gt 0 ]
 	do
@@ -38,20 +45,46 @@ uuidV7()
 		esac
 		shift
 	done
-	epochnano=$(printf "%(%10s%3N)T" now)
+	(( Xdbg>0 )) && echo "ksh:$ksh bash:$bash" >&2
+	(( ksh == 1 )) && epochnano=$(printf "%(%10s%3N)T" now)
+	if (( bash == 1 )) ; then
+		epochnano=${EPOCHREALTIME}
+		epochnano=${epochnano:0:10}${epochnano:11:3}
+	fi
 	(( Xdbg>0 )) && echo "Epochnano: $epochnano" >&2
 	epoch=${epochnano:0:10} ## epoch
 	nano=${epochnano:10:3} 
 	(( Xdbg>0 )) && echo "Epoch: $epoch Nano: $nano" >&2
-	st=$(printf "%(%Y-%m-%d %H:%M:%S)T.%s" "#$epoch" "$nano" )
-	s1=${s0:0:10} ## epoch
+	(( ksh==1)) && st=$(printf "%(%Y-%m-%d %H:%M:%S)T.%s" "#$epoch" "$nano" )
+	(( bash==1)) && st=$(printf "%(%Y-%m-%d %H:%M:%S)T.%s" "$epoch" "$nano" )
 	((s2=(epoch*1000) >> 16 ))
 	((s4=( epochnano & (0xffff)) ))
+	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	((rand1=0x7000 + (SRANDOM % 0x0fff) ))
+	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	((rand2=0x8000 + (SRANDOM % 0x3fff) ))
+	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	((rand3= (SRANDOM ) >> 8 ))
+	(( bash == 1 )) && printf -v SRANDOM '%10d\n' $(shuf -i 0-9999999999 -n 1)
+	((rand4= (SRANDOM ) >> 8 ))
+	printf '%08x-%04x-%04x-%04x-%06x%06x|%s|%s\n' $s2 $s4 $rand1 $rand2 $rand3 $rand4 "$st" $epochnano
+
+}
+
+#####################################################
+uuidV7old()
+{
+	[ "$SRANDOM" = "" ] && echo "err: need SRANDOM support, https://github.com/ksh93/ksh" >&2 && exit
+	s0=$(printf "%(%10s%3N)T" now)   # epoch + nano
+	st=$(printf "%(%Y-%m-%d %H:%M:%S.%3N)T" now)
+	s1=${s0:0:10} ## epoch
+	((s2=(s1*1000) >> 16 ))
+	((s4=( s0 & (0xffff)) ))
 	((rand1=0x7000 + (SRANDOM % 0x0fff) ))
 	((rand2=0x8000 + (SRANDOM % 0x3fff) ))
 	((rand3= (SRANDOM ) >> 8 ))
 	((rand4= (SRANDOM ) >> 8 ))
-	printf '%08x-%04x-%04x-%04x-%06x%06x|%s|%s\n' $s2 $s4 $rand1 $rand2 $rand3 $rand4 "$st" $epochnano
+	printf '%08x-%04x-%04x-%04x-%06x%06x|%s|%s\n' $s2 $s4 $rand1 $rand2 $rand3 $rand4 "$st" $s0
 }
 
 #####################################################
@@ -63,7 +96,8 @@ uuidv72timestamp()
 	bigint=$(printf "%ld\n" $epochhex)
 	((epoch=bigint/1000))
 	((epochnano=bigint%1000))
-	printf "%(%Y-%m-%d %H:%M:%S)T.%03d\n" "#$epoch" $epochnano
+	(( ksh==1 )) && printf "%(%Y-%m-%d %H:%M:%S)T.%03d\n" "#$epoch" $epochnano
+	(( bash==1 )) && printf "%(%Y-%m-%d %H:%M:%S)T.%03d\n" "$epoch" $epochnano
 }
 
 
@@ -71,8 +105,8 @@ uuidv72timestamp()
 test_uuidv7()
 {
 	IFS="|" read Xuuid Xtime Xepochnano
-	Xnano=${Xepochnano:10:3}
-	Xtimestamp="$Xtime.$Xnano"
+	echo "Xtime:$Xtime Xepochnano:$Xepochnano"
+	Xtimestamp="$Xtime"
 	Xgettime=$(uuidv72timestamp "$Xuuid")
 	Xstat="OK"
 	[ "$Xtimestamp" != "$Xgettime" ] && Xstat="err: not same"
@@ -100,6 +134,10 @@ test_uuid()
 #####################################################
 
 
+ksh=0
+bash=0
+[ "$KSH_VERSION" != "" ] && ksh=1
+[ "$EPOCHREALTIME" != "" ] && bash=1  # bash >= v.5
 cnt=0
 while [ $# -gt 0 ]
 do 
