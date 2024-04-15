@@ -244,11 +244,11 @@ uuidv7.sh return:
 
 ```sh
 uuidv7.sh
-018edcc9-dd33-76cd-adb2-6e0830d1401c|2024-04-14 16:26:40.695|1713101200691
+018ee027-15c8-7815-9b85-bf97799251a3|2024-04-15 08:07:21.672|1713157641672
 
 # reverse, take timestamp from uuidv7
-uuidv7.sh -r "018edcc9-dd33-76cd-adb2-6e0830d1401c"
-2024-04-14 16:26:40.691
+uuidv7.sh -r 018ee027-15c8-7815-9b85-bf97799251a3
+2024-04-15 08:07:21.672
 
 # uuidv4 using OpenSSL rand
 uuidv7.sh -s

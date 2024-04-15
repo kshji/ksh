@@ -1,7 +1,7 @@
 #!/usr/local/bin/awsh
 # uuidv7.sh
 # https://github.com/kshji/ksh/tree/master/Sh
-# Jukka Inkeri 2024-04-14
+# Jukka Inkeri 2024-04-15
 # 
 # https://github.com/kshji/ksh/blob/master/LICENSE.md
 #
@@ -43,7 +43,7 @@ uuidV7()
 	epoch=${epochnano:0:10} ## epoch
 	nano=${epochnano:10:3} 
 	(( Xdbg>0 )) && echo "Epoch: $epoch Nano: $nano" >&2
-	st=$(printf "%(%Y-%m-%d %H:%M:%S)T" "#$epoch" )
+	st=$(printf "%(%Y-%m-%d %H:%M:%S)T.%s" "#$epoch" "$nano" )
 	s1=${s0:0:10} ## epoch
 	((s2=(epoch*1000) >> 16 ))
 	((s4=( epochnano & (0xffff)) ))
