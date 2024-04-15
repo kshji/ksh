@@ -231,7 +231,7 @@ Create csvout directory. Output data to the csvout directory.
 Uuidv7 begin with timestamp = sort is easy using uuidv7 and no need to save timestamp.
 
 Set shell to the 1st line. Works with ksh and bash. Epochtime and random has done different methods.
-Ksh use only builtin commands, bash need **shuf** command to geenerate bigint randoms.
+Done using only builtin commands.
 
   * [IETF](https://www.ietf.org/archive/id/draft-peabody-dispatch-new-uuid-format-04.html)
   * [Why uuidv7 is better ...](https://itnext.io/why-uuid7-is-better-than-uuid4-as-clustered-index-edb02bf70056)
