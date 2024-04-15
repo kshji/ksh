@@ -33,7 +33,7 @@ uuid_ssl()
 }
 
 #####################################################
-rand()
+rand10()
 {
    xrand=""
    for xc in {1..4}
@@ -41,8 +41,10 @@ rand()
          x=$(printf '%04d' $(( RANDOM % 10000 )) )
          xrand=$xrand${x:0:3}
    done
-   xrand=${xrand:0:10}
-   echo $((10#$xrand))
+   xrand="${xrand:0:10}"
+   #echo $((10#$xrand))
+   #echo ${xrand##*(0)} # not work in script????
+   echo ${xrand#${xrand%%[^0]*}}
 }
 
 #####################################################
@@ -66,7 +68,7 @@ uuidV7()
 		# 4 random bigint
 		#RANDOMS=( $(shuf -i 0-9999999999 -n 4) )
 		# builtin version
-		RANDOMS=( $(rand) $(rand) $(rand) $(rand) )
+		RANDOMS=( $(rand10) $(rand10) $(rand10) $(rand10) )
 	fi
 	(( Xdbg>0 )) && echo "Epochnano: $epochnano" >&2
 	epoch=${epochnano:0:10} ## epoch
@@ -144,6 +146,10 @@ test_uuid()
 	do
 		test_uuidv7 < <(uuidV7 -d)
 	done
+
+	a="0003865835687"
+	echo "a:${a##*(0)}"  # not work?????
+	echo "a:${a#${a%%[^0]*}}"
 }
 
 #####################################################
