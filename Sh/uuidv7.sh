@@ -33,6 +33,16 @@ uuid_ssl()
 }
 
 #####################################################
+rand()
+{
+        xa=$(printf "%04d\n" $(( RANDOM % 10000 )) )
+        xb=$(printf "%04d\n" $(( RANDOM % 10000 )) )
+        xc=$(printf "%04d\n" $(( RANDOM % 10000 )) )
+        xc=${xc:1:2}
+        echo "$xa$xb$xc"
+}
+
+#####################################################
 uuidV7()
 {
 	[ "$KSH_VERSION" != "" -a "$SRANDOM" = "" ] && echo "err: need ksh SRANDOM support, https://github.com/ksh93/ksh" >&2 && exit
@@ -51,7 +61,9 @@ uuidV7()
 		epochnano=${EPOCHREALTIME}
 		epochnano=${epochnano:0:10}${epochnano:11:3}
 		# 4 random bigint
-		RANDOMS=( $(shuf -i 0-9999999999 -n 4) )
+		#RANDOMS=( $(shuf -i 0-9999999999 -n 4) )
+		# builtin version
+		RANDOMS=( $(rand) $(rand) $(rand) $(rand) )
 	fi
 	(( Xdbg>0 )) && echo "Epochnano: $epochnano" >&2
 	epoch=${epochnano:0:10} ## epoch
