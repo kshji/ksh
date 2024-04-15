@@ -35,11 +35,18 @@ uuid_ssl()
 #####################################################
 rand()
 {
-        xa=$(printf "%04d\n" $(( RANDOM % 10000 )) )
-        xb=$(printf "%04d\n" $(( RANDOM % 10000 )) )
-        xc=$(printf "%04d\n" $(( RANDOM % 10000 )) )
-        xc=${xc:1:2}
-        echo "$xa$xb$xc"
+   xrand=""
+   for xc in {1..4}
+   do
+         x=$(printf '%04d' $(( RANDOM % 10000 )) )
+         xrand=$xrand${x:0:3}
+   done
+   xrand=${xrand:0:10}
+   while [ "${xrand:0:1}" = "0" ]
+   do
+   	xrand=${xrand:1}
+   done
+   echo $xrand
 }
 
 #####################################################
