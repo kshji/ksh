@@ -42,11 +42,7 @@ rand()
          xrand=$xrand${x:0:3}
    done
    xrand=${xrand:0:10}
-   while [ "${xrand:0:1}" = "0" ]
-   do
-   	xrand=${xrand:1}
-   done
-   echo $xrand
+   echo $((10#$xrand))
 }
 
 #####################################################
