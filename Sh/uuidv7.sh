@@ -43,8 +43,8 @@ rand10()
    done
    xrand="${xrand:0:10}"
    #echo $((10#$xrand))
-   #echo ${xrand##*(0)} # not work in script????
-   echo ${xrand#${xrand%%[^0]*}}
+   echo ${xrand##*(0)} # bash need shopt -s extglob 
+   #echo ${xrand#${xrand%%[^0]*}}
 }
 
 #####################################################
@@ -161,6 +161,7 @@ ksh=0
 bash=0
 [ "$KSH_VERSION" != "" ] && ksh=1
 [ "$EPOCHREALTIME" != "" ] && bash=1  # bash >= v.5
+(( bash == 1 )) && shopt -s extglob 
 cnt=0
 while [ $# -gt 0 ]
 do 
