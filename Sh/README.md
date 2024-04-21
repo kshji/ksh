@@ -258,3 +258,50 @@ uuidv7.sh -s
 acbfee75-cbb4-441a-b5f5-a0841a528e64
 ```
 
+## moneycalc.sh
+
+Package contains calculation models on how money and related calculations are done using
+integer rather than floating point calculations.
+Risk? Because floating point does not provide the right answers in all situations.
+
+[Read more]( #  https://en.wikipedia.org/wiki/Floating-point_error_mitigation)
+
+**Round** and **floor** function are generic, you can use it any rounding level, look examples.
+
+```bash
+# Test without debug output
+    moneycalc.sh -t
+# Test with debug output
+    moneycalc.sh -d -t
+# Example
+#     round using 900 = ex. 900 s = 15 min
+       moneycalc.sh -m 900 1600 # 1600 s
+       1800 # half hour
+
+       moneycalc.sh -m 900 4260 # 3600 + 660 s = 1h 11 min => 4500 s = 1 h 15 min
+       4500  # 1 h 15 min
+
+#     round money 12.54 rounding nearest .10
+       moneycalc.sh -m 10 1255
+       1260
+
+#     round money 12.54 rounding nearest integer
+       moneycalc.sh -m 100 1255
+       1300
+
+#     test using default 3 decimal = multiplier 1000
+        moneycalc.sh -t
+
+#     test using default 2 decimal = multiplier 100
+        moneycalc.sh -m 100 -t
+
+#     round 12.03 to nearest .05
+	round 1203 5
+	1205
+#     floor 12.03 to nearest .05
+	floor 1203 5
+	1205
+
+```bash
+
+
