@@ -268,6 +268,8 @@ Risk? Because floating point does not provide the right answers in all situation
 
 **Round** and **floor** function are generic, you can use it any rounding level, look examples.
 
+Include also VAT price calculation, VAT could be any desimal number! Not only integer.
+
 ```bash
 # Test without debug output
     moneycalc.sh -t
@@ -307,6 +309,10 @@ Risk? Because floating point does not provide the right answers in all situation
 #     floor 12.03 to nearest .05
 	floor 1203 5
 	1205
+
+#      Calc Price wirth VAT, if without is 100.98 and VAT% is 24.5
+	calc_vat_price 100.98 24.5
+        125.72
 
 ```
 

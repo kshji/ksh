@@ -47,6 +47,10 @@
 #     test using default 2 decimal = multiplier 100
 #	moneycalc.sh -m 100 -t
 #
+#     VAT price calculation
+#	calc_vat_price 100.98 24.5  
+#	125.72
+#
 
 multiplier=1000 # use 3 decimals
 roundfactor=10
