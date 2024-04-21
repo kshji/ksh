@@ -264,7 +264,7 @@ Package contains calculation models on how money and related calculations are do
 integer rather than floating point calculations.
 Risk? Because floating point does not provide the right answers in all situations.
 
-[Read more]( #  https://en.wikipedia.org/wiki/Floating-point_error_mitigation)
+[Read more](https://en.wikipedia.org/wiki/Floating-point_error_mitigation)
 
 **Round** and **floor** function are generic, you can use it any rounding level, look examples.
 
