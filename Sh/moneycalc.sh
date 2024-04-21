@@ -53,7 +53,6 @@
 #
 
 multiplier=1000 # use 3 decimals
-roundfactor=10
 debug=0
 #((maxint=((2**63)-1) )) # max in bash, ksh has no limit
 #[ "$KSH_VERSION" != "" ]  && ((maxint=((2*100)) ))
@@ -64,6 +63,7 @@ dbg()
   	((debug<1)) && return
   	echo "$*" >&2
 }
+
 #############################################################################
 des2int() 
 {
