@@ -281,11 +281,17 @@ Risk? Because floating point does not provide the right answers in all situation
        moneycalc.sh -m 900 4260 # 3600 + 660 s = 1h 11 min => 4500 s = 1 h 15 min
        4500  # 1 h 15 min
 
-#     round money 12.54 rounding nearest .10
+#     round money 12.55 rounding nearest .10
        moneycalc.sh -m 10 1255
        1260
 
-#     round money 12.54 rounding nearest integer
+#     round money 12.57 rounding nearest .05
+       moneycalc.sh -m 5 1257
+       1255
+       moneycalc.sh -m 5 1258
+       1260
+
+#     round money 12.55 rounding nearest integer
        moneycalc.sh -m 100 1255
        1300
 
