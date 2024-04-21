@@ -302,6 +302,6 @@ Risk? Because floating point does not provide the right answers in all situation
 	floor 1203 5
 	1205
 
-```bash
+```
 
 
