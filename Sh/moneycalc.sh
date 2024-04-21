@@ -32,6 +32,10 @@
 #     round money 12.54 rounding nearest .10
 #	moneycalc.sh -m 10 1255
 #       1260
+#	moneycalc.sh -m 5 1257
+#       1255
+#	moneycalc.sh -m 5 1258
+#       1260
 #
 #     round money 12.54 rounding nearest integer
 #  	moneycalc.sh -m 100 1255
