@@ -24,6 +24,7 @@ echo ${prosnum##*=}  # last fld, delimiter =
 
 
 # Look Parameter Expansion:
+# https://github.com/ksh93/ksh/tree/dev/docs/ksh
 # https://www.gnu.org/software/bash/manual/bash.html#Command-Substitution
 # https://www.ibm.com/docs/en/aix/7.1.0?topic=shell-parameter-substitution-in-korn-posix
 # https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/utilities/V3_chap02.html  
