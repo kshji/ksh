@@ -10,7 +10,7 @@ tested: bash, ksh, dash, zsh
 result: version 5 not work using zsh
 "
 
-: || cat <<+++
+: || <<+++
 	Comment text is stored. Version 1.
 	This text doesn't show up anywhere. It's a way to write a comment that goes on multiple lines.
 +++
