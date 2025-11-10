@@ -260,7 +260,7 @@ acbfee75-cbb4-441a-b5f5-a0841a528e64
 
 ## multilinecomment.sh
 
-"As most of us know, the standard POSIX shell doesn't have multiline comments, like you see in a lot of other 
+As most of us know, the standard POSIX shell doesn't have multiline comments, like you see in a lot of other 
 programming languages.
 
 I'm sure David Korn (of KornShell fame) had a good reason for not including `/* ... */` style comments.
@@ -277,6 +277,19 @@ The script `multilinecomment.sh` shows a few easy ways to comment out chunks of 
 Tested: bash, ksh (ksh93), dash, zsh
 
 Result: Version 5 doesn't work in zsh.
+
+I'm probably going to pick version 7 as my favorite.
+```sh
+
+: '/*
+    Multilinecomment in shellscripts (posix-standard)
+    Some text ...
+    # next cmd is 
+    somecmd
+
+*/'
+
+```
 
 ## moneycalc.sh
 
