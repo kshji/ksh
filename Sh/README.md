@@ -258,6 +258,26 @@ uuidv7.sh -s
 acbfee75-cbb4-441a-b5f5-a0841a528e64
 ```
 
+## multilinecomment.sh
+
+"As most of us know, the standard POSIX shell doesn't have multiline comments, like you see in a lot of other 
+programming languages.
+
+I'm sure David Korn (of KornShell fame) had a good reason for not including `/* ... */` style comments.
+
+A lot of us have come up with different ways to deal with this.
+
+Just messing around when I had some free time, I started thinking about all the different ways you could do 
+multiline comments in shell.
+
+Here are a few ideas. Pick the one you like best!  Feel free to share any other clever methods you've come up with.
+
+The script `multilinecomment.sh` shows a few easy ways to comment out chunks of code in your shell scripts.
+
+Tested: bash, ksh (ksh93), dash, zsh
+
+Result: Version 5 doesn't work in zsh.
+
 ## moneycalc.sh
 
 Package contains calculation models on how money and related calculations are done using
