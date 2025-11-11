@@ -270,7 +270,8 @@ A lot of us have come up with different ways to deal with this.
 Just messing around when I had some free time, I started thinking about all the different ways you could do 
 multiline comments in shell.
 
-Here are a few ideas. Pick the one you like best!  Feel free to share any other clever methods you've come up with.
+[Here](https://raw.githubusercontent.com/kshji/ksh/refs/heads/master/Sh/multilinecomment.sh)
+ are a few ideas. Pick the one you like best!  Feel free to share any other clever methods you've come up with.
 
 The script `multilinecomment.sh` shows a few easy ways to comment out chunks of code in your shell scripts.
 
