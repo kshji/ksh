@@ -1,4 +1,5 @@
-#!/usr/local/bin/awsh
+#!/bin/bash
+# or ksh, dash, zsh, ... any posix-sh
 # multilinecomment.sh
 # ver 2025-11-10
 # github kshji
