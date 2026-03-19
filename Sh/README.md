@@ -351,3 +351,13 @@ Include also VAT price calculation, VAT could be any desimal number! Not only in
 ```
 
 
+## forloops.sh
+
+Number sequences and how to handle leading zeros.
+
+Example:
+```bash
+print {01..10%02d}
+# 01 02 03 04 05 06 07 08 09 10
+```
+
