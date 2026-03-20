@@ -361,3 +361,17 @@ print {01..10%02d}
 # 01 02 03 04 05 06 07 08 09 10
 ```
 
+## chr2hexdec.sh
+Handle chr conversion to hex and ascii
+
+```bash
+printf "%X\n" \'A    # 41 hex
+printf "%X\n" \'@    # 40 hex
+printf "%d\n" \'A    # 65 dec
+printf "%d\n" \'@    # 64 dec
+```
+
+## regexp.example.sh and regexp.example2.sh
+
+Lot of regexp and regexp extended examples
+
