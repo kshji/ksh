@@ -375,3 +375,7 @@ printf "%d\n" \'@    # 64 dec
 
 Lot of regexp and regexp extended examples
 
+## reverse_binary_file.sh
+
+Example to read binary file reverse.
+
