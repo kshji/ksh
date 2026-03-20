@@ -379,3 +379,20 @@ Lot of regexp and regexp extended examples
 
 Example to read binary file reverse.
 
+## urlcode.sh URL decode/encode
+
+Encode:
+```bash
+urlcode.sh -e "https://example.fi/x?y=1&a=2"
+https%3A%2F%2Fexample.fi%2Fx%3Fy%3D1%26a%3D2
+```
+Decode:
+```bash
+urlcode.sh -d "https%3A%2F%2Fexample.fi%2Fx%3Fy%3D1%26a%3D2"
+https://example.fi/x?y=1&a=2awot /mnt/c/da/Src/Git/ksh/Sh
+```
+Html:
+```bash
+urlcode.sh -h "https://example.fi/x?y=1&a=2"
+https://example.fi/x?y=1&amp;a=2
+```
