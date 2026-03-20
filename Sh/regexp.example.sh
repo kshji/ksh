@@ -2,7 +2,6 @@
 # regexp.example.sh
 # 
 # Look:
-#    http://blog.fpmurphy.com/2009/01/ksh93-regular-expressions.html
 #    http://stackoverflow.com/questions/3833804/setting-another-variable-with-a-regular-expression-in-ksh
 #
 echo "Ver1, parse to array"
