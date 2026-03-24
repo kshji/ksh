@@ -7,21 +7,18 @@ x=B10
 
 for x in "B10" "B100" "BA1"
 do
-	echo "$x"
-	[[ $x =~ B[0-9]{2} ]] && echo match || echo nomatch
+        echo "$x"
+        [[ $x =~ B[0-9]{2} ]] && echo match || echo nomatch
+        [[ $x =~ B[[:digit:]]{2} ]] && echo match || echo nomatch
+        [[ $x =~ B(\d){2} ]] && echo match || echo nomatch
 done
 
 #################################
 str='An extended pattern expression'
  
-print ${str//e/#}
-print ${str//[^e]/#}
-print ${str//+(e)/#}
-print ${str//-(e)/#}
-print ${str//?(e)/#}
-print ${str//*(e)/#}
-print ${str//!(e)/#}
-
+print "replace e=>#  ${str//e/#} "
+print "replace not e => #  ${str//[^e]/#}"
+print "replace 1-n e => # ${str//+(e)/#}"
 
 
 #########################################
