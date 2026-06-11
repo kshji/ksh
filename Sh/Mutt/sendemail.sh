@@ -2,7 +2,7 @@
 # sendmail.sh
 # https://github.com/kshji/ksh/tree/master/Sh/Mutt
 # Jukka Inkeri https://awot.fi
-# Ver:2021-03-15
+# Ver:2026-06-11
 #
 # Tested also with
 #   -Google gmail smtp using app password
@@ -14,6 +14,9 @@
 # sendmail.sh -D mydomain.fi -u useraccount -p app_password -m message.latin1.txt -r example.muttrc -c cc.person@email.xx \
 #             -t to.person@gmail.com -f from.user@mudomain.fi -s "Subject text" -a example.pdf -p app_password -d 1 \
 #	      -n "My Name"
+#	      -a 0|1
+# New option
+# 	      -C = Confirmation 0|1 , default 0
 #
 PRG="$0"
 BINDIR="${PRG%/*}"
@@ -30,7 +33,7 @@ chmod 1777 tmp 2>/dev/null
 ######################################################################
 usage()
 {
-	echo "usage:$PRG -r muttrc -D domain -u useraccount -t to_email -f from_email  -s Subject -m message_file [ -a attachmentfile -b bcc_mailto -c cc_mailto -n \"My Name\" ]" >&2
+	echo "usage:$PRG -r muttrc -D domain -u useraccount -t to_email -f from_email  -s Subject -m message_file [ -a attachmentfile -b bcc_mailto -c cc_mailto -n \"My Name\" -C 0|1 ]" >&2
 }
 
 ######################################################################
@@ -59,19 +62,25 @@ debug=0
 domain=""
 attachments=""
 sendername=""
+confirmation=""
 # - EN: set SmtpAuthPassword using env variable SMTPAUTHPASS or ask from user
 # - FI: voit antaa SMTPAUTHPASS muuttujassa authpasswd tai kysyy tassa kohtaa jattamatta muistiin
 # - Gmail smtp not need SMTPAUTHPASS, use application password, also Office 365 is possible to use application password
 authpasswd="$SMTPAUTHPASS"
 contenttype=""
+confirmation=0
 
 while [ $# -gt 0 ]
 do
 	arg="$1"
 	case "$arg" in
 		-t) mailto="$2"; shift ;;
+		-e) #replyto="-e \"set reply_to="$2\""; shift ;;
+			export REPLYTO="$2"
+			;;
 		-b) bcc="-b $2"; shift ;;
 		-c) cc="-c $2"; shift ;;
+		-C) confirmation=$2; shift ;;
 		-f) sender="$2" ; shift ;;
 		-n) sendername="$2" ; shift ;;
 		-m) message="$2" ; shift ;;
@@ -96,6 +105,12 @@ done
 [ "$message" = "" ] && usage && exit 5
 [ "$domain" = "" ] && usage && exit 6
 [ "$useraccount" = "" ] && usage && exit 7
+
+confirmationstr=""
+confirmationflag=""
+[ "$confirmation" = 1 ] && confirmationstr="my_hdr Disposition-Notification-To: <$sender>" && confirmationflag="-e"
+					     #-e 'my_hdr Disposition-Notification-To: <jukka.inkeri@gmail.com>'
+((debug>0)) && echo " - confirmationstr: $confirmationstr" >&2
 
 if [ "$authpasswd" = "" ] ; then
 	printf "user $useraccount password:" 
@@ -125,14 +140,16 @@ parse_file "$muttrc" > "$tmpf"
 # send mail
 if [ "$contenttype" = "html" ] ; then
 
-	((debug>0)) && echo "mutt -F $tmpf -e "set content_type=text/html" -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments" >&2
-	parse_file "$message" | mutt -F $tmpf -e "set content_type=text/html" -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments 
-	mutt -F $tmpf -e "set content_type=text/html" -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments <<EOF
+	((debug>0)) && echo "HTML mutt -F $tmpf -e \"set content_type=text/html\" $confirmationstr -s \"$subject\" $bcc $cc  \"$mailto\" \"$option\" $attachment $attachments" >&2
+	mutt -F "$tmpf" -e "set content_type=text/html" $confirmationflag $confirmationstr -s "$subject" $bcc $cc "$mailto" "$option" $attachment $attachments <<EOF
 $(parse_file $message)
 EOF
 else
-	((debug>0)) && echo "mutt -F $tmpf -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments" >&2
-	mutt -F $tmpf -s "$subject" $bcc $cc  "$mailto" "$option" $attachment $attachments <<EOF
+	((debug>0)) && echo "TEXT mutt -F $tmpf $confirmationflag $confirmationstr -s \"$subject\" $bcc $cc  \"$mailto\" \"$option\" $attachment $attachments" >&2
+	#mutt -F "$tmpf" -s "$subject" $bcc $cc "$mailto" "$option" $attachment $attachments <<EOF
+	#mutt -F "$tmpf" -e 'my_hdr Disposition-Notification-To: <jukka.inkeri@gmail.com>' -s "$subject" $bcc $cc "$mailto" "$option" $attachment $attachments <<EOF
+	echo mutt -F "$tmpf" $confirmationflag "$confirmationstr"  -s "$subject" $bcc $cc "$mailto" "$option" $attachment $attachments 2>/dev/null
+	mutt -F "$tmpf" $confirmationflag "$confirmationstr"  -s "$subject" $bcc $cc "$mailto" "$option" $attachment $attachments <<EOF
 
 $(parse_file $message)
 
@@ -141,5 +158,5 @@ fi
 
 # - remove temporary muttrc
 ((debug>0)) && cat "$tmpf"
-((debug<2)) && rm -f "$tmpf"     2>/dev/null
+((debug<1)) && rm -f "$tmpf"     2>/dev/null
 
