@@ -180,3 +180,5 @@ echo "t=$t"
 [[ $t =~ 456 ]]  && echo yes  || echo no
 [[ $t =~ 123 ]]  && echo yes  || echo no
 [[ $t == 123* ]]  && echo yes  || echo no
+
+

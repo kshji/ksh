@@ -43,3 +43,5 @@ print $a
 a=${b/~(E),*lap} a=${a/~(E)^,*}
 print $a
 #orl,bdl
+
+
