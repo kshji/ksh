@@ -265,6 +265,9 @@ Again example how to lost ksh93 builtin properties.
 This script include function b64_encode and b64_decode, which use ONLY ksh93 builtin properties.
 Zero external commands. Functions include also example how to use nameref to set result or stdout.
 
+## sign.builtin.sh
+This is example how to make sign string ex. for cookies using sha256/fvt32/md5/.../hmac using ksh93 builtin properties.
+
 ## multilinecomment.sh
 
 As most of us know, the standard POSIX shell doesn't have multiline comments, like you see in a lot of other 
