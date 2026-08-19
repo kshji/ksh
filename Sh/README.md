@@ -257,6 +257,13 @@ uuidv7.sh -r 018ee027-15c8-7815-9b85-bf97799251a3
 uuidv7.sh -s
 acbfee75-cbb4-441a-b5f5-a0841a528e64
 ```
+## base64.sh
+
+Usually ksh scripts use external command to handle base64 data.
+Again example how to lost ksh93 builtin properties.
+
+This script include function b64_encode and b64_decode, which use ONLY ksh93 builtin properties.
+Zero external commands. Functions include also example how to use nameref to set result or stdout.
 
 ## multilinecomment.sh
 
