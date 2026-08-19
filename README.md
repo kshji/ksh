@@ -15,6 +15,13 @@ of built in properties. ex, calculations without expr, parsing without awk/sed/c
 
 Unfortunately, fpmurphy.com site is gone now. Finnbarr P. Murphy’s site had a ton of examples of what ksh can do—stuff the manual didn't tell you, at least not directly.
 
+Finnbarr P. Murphy Archives:
+* https://web.archive.org/web/20130306112955/http://blog.fpmurphy.com/tag/ksh
+* https://web.archive.org/web/20130306112333/http://blog.fpmurphy.com/tag/korn-shell
+* https://web.archive.org/web/20130306112338/http://blog.fpmurphy.com/tag/ksh93
+* ... 
+* [ALL in PDF-docs](https://www.scribd.com/user/8477352/Finnbarr-P-Murphy/uploads)
+
 Why I like it ? Only some commands but enough. No libraries or plugins. Static bin include everything.
   * Nice HERE template 
   * Very simple and nice socket support 
