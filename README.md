@@ -125,7 +125,57 @@ Change my "awsh" to your ksh path as you need it.
    * lib.sh include some function, libusage.sh is example to use it
    * ...
 
-## Guru scripts ##
+## Guru scripts  - Reference manual - HowTo ##
+
+The ksh (ksh93) manual page is only a small scratch on the surface of everything you can do with ksh. 
+It is a full-fledged programming language once you grasp the brilliance of its core.
+
+When the fpmurphy.com website disappeared, a vast amount of excellent examples of what can be achieved with ksh93 was lost.
+
+The most important insight is to realize that one should strive to use ksh's builtin commands instead of heavy piping of external commands.
+
+For example, you see this far too often:
+(awk, sed, grep, cut, tr, ...)
+```bash
+# convert +=>- / => _ and remove =
+# two subprocess, lot of extra io, env copy, ...
+print "$mac" | tr  '+/' '-_' | tr -d '='
+
+# get fieds 2 and 4, delimiter |, output delimiter space
+str="fld1|fld2|fld3|fld4|fld5"
+print "$str" | cut -d "|" -f 2,4 | tr "|" " "
+```
+
+
+...when the same thing could be done much more efficiently with builtins without heavy child processes.
+
+```bash
+# convert +=>- / => _ and remove =
+mac=${mac//+/-}
+mac=${mac//\//_}
+mac=${mac//=/}
+
+# get fieds 2 and 4, delimiter |, output delimiter space  
+# lot of builtin solutions, here is two example
+# change default input field separator (IFS) = white spaces to the |
+IFS="|" read fld1 fld2 fld3 fld4 fld5 xstr <<<$str
+# why xtsr? if there are more than 5 flds, extra data is in the xstr, not in the fld5
+# or more dynamic method parse the input
+IFS="|" array=($str)
+print "array:${array[@]}"
+fld2=${array[1]}  # 0 = 1st index
+fld4=${array[3]}
+print $fld2 $fld4
+```
+
+
+If ksh93 is compiled with the option `ALL_LIBCMD=1`, then builtins truly blow the possibilities of ksh93 wide open. 
+In this case, all the essential commands that are normally invoked as external commands are available as builtins.
+
+For instance, base64, sha256, md5, and others... all as internal builtin commands.
+
+If need look a lot of builtin "examples", look ksh93 test patterns scripts.
+
    * [Ksh test patterns ](https://github.com/ksh93/ksh/tree/dev/src/cmd/ksh93/tests)
 
 
