@@ -24,6 +24,20 @@ Why I like it ? Only some commands but enough. No libraries or plugins. Static b
   * regexp 
   * Trap
 
+### *nix / real life
+
+After fork() and once born, it's naturally a brand new child process that inherits its parent’s environment—until it decides to exec() and strike out on its own.
+All the parent can do is pray it never turns into a zombie or gets orphaned, 
+leaving init to adopt it and reap it with a wait() call!
+
+#### Sama suomeksi tulkattuna
+
+Fork():n jälkeen lapsen synnyttyähän kyseessä on tietenkin uusi lapsiprosessi, joka perii vanhempansa ympäristön, kunnes päättää tehdä oman exec():n ja lähteä omille teilleen. 
+Vanhemman tehtäväksi jää vain toivoa, ettei siitä tule koskaan zombieta tai orpoa,
+jota init joutuu adoptoimaan ja korjaamaan wait():llä!"
+
+## Thanks for Bourne Shell and Ksh
+
 Thanks for Bourne Shell and 
 [Korn Shell](https://www.usenix.org/legacy/publications/library/proceedings/vhll/full_papers/korn.ksh.a). 
 All posix-sh are nice (ksh, bash, dash, ...), but for scripting I have used ksh93. Dash is full Posix-sh compatible,
