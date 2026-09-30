@@ -360,6 +360,7 @@ Include also VAT price calculation, VAT could be any desimal number! Not only in
 
 ```
 
+Look also ***moneycalc2.sh***
 
 ## forloops.sh
 

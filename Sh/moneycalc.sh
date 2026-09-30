@@ -14,7 +14,9 @@
 #
 # More
 #  https://en.wikipedia.org/wiki/Floating-point_error_mitigation
-# 
+#  https://floating-point-gui.de/languages
+#  https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
+#
 # Round function is generic, you can use it any rounding level, look examples
 #
 # Test without debug output
@@ -51,10 +53,13 @@
 #	calc_vat_price 100.98 24.5  
 #	125.72
 #
+###########################
+# Look also moneycalc2.sh
+###########################
 
 multiplier=1000 # use 3 decimals
 debug=0
-#((maxint=((2**63)-1) )) # max in bash, ksh has no limit
+((maxint=((2**63)-1) )) # 
 #[ "$KSH_VERSION" != "" ]  && ((maxint=((2*100)) ))
 
 #############################################################################
@@ -90,6 +95,24 @@ int2des()
 	Xdespart=${Xint:$Xnumlen}
 	dbg "   int2des $Xint = $Xnumber.$Xdespart"
 	echo "$Xnumber.$Xdespart"
+}
+
+#############################################################################
+typeset int Xnum Xmult Xr
+round2()
+{
+	#num, mult,    r) {
+  	Xnum=$(printf "%.0f" $1)
+	dbg "round2    Xnum:$Xnum"
+  	Xmult=$2
+  	[ "$Xmult" = "" ] && Xmult=$multiplier
+  	if (( Xnum % Xmult < Xmult / 2 )) ; then
+    		echo $(( Xnum - (Xnum % Xmult) ))
+    		return
+  	fi
+  	(( Xr = Xnum % Xmult ))
+  	(( Xr != 0 )) && echo $(( Xnum + (Xmult - Xr) )) && return
+  	echo $Xnum
 }
 
 #############################################################################
@@ -306,6 +329,7 @@ do
 	case "$arg" in
 		-d) debug=1 ;;
 		-m) multiplier=$2; shift ;;
+		-p) round2 $2 ; shift ;;
 		-t) testset ;;
 		-2) testset2 ;;
 		-e) examples ;;
